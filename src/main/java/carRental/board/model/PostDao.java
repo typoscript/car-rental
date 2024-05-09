@@ -3,6 +3,7 @@ package carRental.board.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import carRental.util.DBManager;
 
@@ -43,5 +44,9 @@ public class PostDao {
 		}
 		
 		return isCreated;
+	}
+
+	public List<PostResponseDto> findPostAll() {
+		
 	}
 }
