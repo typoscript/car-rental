@@ -146,6 +146,9 @@ public class UserDao {
 		UserResponseDto user = null;
 		String sql = "UPDATE users SET phone=? WHERE id=? AND password=?";
 
+		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return null;
+
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
