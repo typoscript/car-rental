@@ -21,5 +21,6 @@ public class CarDao {
 	}
 
 	public List<CarResponseDto> findCarAll() {
+		String sql = "SELECT id, brand, name, type, fuel_type, year, img_url, fee, mileage FROM cars";
 	}
 }
