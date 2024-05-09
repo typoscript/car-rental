@@ -6,6 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import carRental.user.model.UserDao;
+import carRental.user.model.UserRequestDto;
+import carRental.user.model.UserResponseDto;
+import carRental.util.PasswordCrypto;
 
 /**
  * Servlet implementation class UserDeleteAction
@@ -26,14 +32,32 @@ public class UserDeleteAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserDao userDao = UserDao.getInstance();
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		String id = user.getId();
+		String password = request.getParameter("password");
+
+		UserRequestDto userDto = new UserRequestDto();
+
+		userDto.setId(id);
+		userDto.setPassword(PasswordCrypto.encrypt(password));
+
+		boolean result = userDao.deleteUser(userDto);
+
+		if (result) {
+			response.sendRedirect("/");
+			return;
+		}
+
+		response.sendRedirect("/myPage");
 	}
 
 }
