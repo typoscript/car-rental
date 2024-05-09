@@ -169,16 +169,16 @@ public class UserDao {
 
 	public boolean deleteUser(UserRequestDto userDto) {
 		boolean isDeleted = true;
+
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
 			return false;
 
-		String sql = "DELETE FROM users WHERE id=? AND password=?";
+		String sql = "DELETE FROM users WHERE id=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, userDto.getId());
-			pstmt.setString(2, userDto.getPassword());
 
 			pstmt.execute();
 		} catch (Exception e) {
