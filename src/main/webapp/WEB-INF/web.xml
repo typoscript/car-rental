@@ -95,12 +95,12 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>postWrite</servlet-name>
-    <jsp-file>/views/board/postWrite.jsp</jsp-file>
+    <servlet-name>postCreate</servlet-name>
+    <jsp-file>/views/board/postCreate.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>postWrite</servlet-name>
-    <url-pattern>/postWrite</url-pattern>
+    <servlet-name>postCreate</servlet-name>
+    <url-pattern>/postCreate</url-pattern>
   </servlet-mapping>
 <!-- 게시판 끝 -->
 
