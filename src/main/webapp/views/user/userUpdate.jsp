@@ -42,8 +42,8 @@
 				<p class="err err-msg-phone">올바른 전화번오 입력 (예: 010-1234-1234).</p>
 				<p class="err err-msg-phone-exist">이미 사용중인 전화번호입니다.</p>
 			</div>
-
-			</form>	
+			<input type="submit" value="회원정보 수정">
+		</form>	
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
