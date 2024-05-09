@@ -115,7 +115,10 @@ public class UserDao {
 
 	public UserResponseDto updateUserAddress(UserRequestDto userDto) {
 		UserResponseDto user = null;
-		String sql = "UPDATE users SET address=? WHERE id=? AND password=?";
+		String sql = "UPDATE users SET address=? WHERE id=?";
+
+		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return null;
 
 		try {
 			conn = DBManager.getConnection();
