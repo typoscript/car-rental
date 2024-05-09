@@ -16,7 +16,7 @@ public class PostDao {
 		return instance;
 	}
 
-	public PostDao createPost(PostDao postDto) {
+	public PostDao createPost(PostRequestDto postDto) {
 		String sql = "INSERT INTO board(user_id, title, content, is_notice)"
 				+ " VALUES (?, ?, ?, ?)";
 	}
