@@ -9,4 +9,6 @@ public class PostDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	
+	private PostDao() { }
 }
