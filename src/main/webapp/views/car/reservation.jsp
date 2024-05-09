@@ -9,6 +9,10 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
+	<c:if test="${empty user}">
+		<c:redirect url="/login"></c:redirect>
+	</c:if>
+
 	<div>
 	</div>
 	<c:import url="/footer"></c:import>
