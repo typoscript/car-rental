@@ -53,6 +53,16 @@ function createCarImg(imgUrl) {
 	return img;
 }
 
+function createReservationButton(id) {
+	const btn = document.createElement("button");
+	
+	$(btn).text("예약");
+	$(btn).attr("id", id);
+	$(btn).addClass("btn btn-primary");
+	
+	return btn;
+}
+
 function createCarCard(car) {
 	const cardContainer = document.createElement("div");
 	
@@ -61,8 +71,9 @@ function createCarCard(car) {
 	
 	infoContainer.append(createCarInfoContainer(car));
 	
-	cardContainer.appendChild(createImg(car.imgUrl));
+	cardContainer.appendChild(createCarImg(car.imgUrl));
 	cardContainer.appendChild(infoContainer);
+	cardContainer.appendChild(createReservationButton(car.id));
 
 	return cardContainer;
 }
