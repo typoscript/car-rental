@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>차량 예약</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/car/reservation.css"/>
 </head>
 <body>
 	<div class="root">
