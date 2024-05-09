@@ -58,6 +58,19 @@ public class PostDao {
 			pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				String userId = rs.getString(1);
+				String title = rs.getString(2);
+				String content = rs.getString(3);
+				boolean isNotice = rs.getBoolean(4);
+				Timestamp creationDate = rs.getTimestamp(5);
+				Timestamp modificationDate = rs.getTimestamp(6);
+				
+				PostResponseDto car = new PostResponseDto(userId, title, content, isNotice, creationDate, modificationDate);
+				
+				cars.add(car);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: findCarAll");
