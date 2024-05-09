@@ -58,19 +58,22 @@ input[type="submit"] {
 	border-radius: 10px;
 	background-color: #ffffff;
 	color: #000000;
+	height: 3rem;
+    width: 7rem;
+    font-size: 1.3rem;
 }
 
-.btn-success {
+.btn.btn-success {
 	background-color: #5dd96a;
 	color: #ffffff;
 }
 
-.btn-primary {
+.btn.btn-primary {
 	background-color: #4558d1;
 	color: #ffffff;
 }
 
-.btn-danger {
+.btn.btn-danger {
 	background-color: #eb4034;
 	color: #ffffff;
 }
