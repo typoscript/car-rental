@@ -161,6 +161,31 @@ public class UserDao {
 		return null;
 	}
 
+	public boolean deleteUser(UserRequestDto userDto) {
+		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
+			return false;
+
+		String sql = "DELETE FROM users WHERE id=? AND password=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, userDto.getId());
+			pstmt.setString(2, userDto.getPassword());
+
+			pstmt.execute();
+
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: deleteUser");
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+		return false;
+	}
+
 	private User findUserById(String id) {
 		User user = null;
 		String sql = "SELECT id, name, address, phone, is_admin, reg_date FROM users WHERE id=?";
