@@ -9,7 +9,9 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
-
+	<div>
+		<h1>마이페이지</h1>
+	</div>
 	<c:import url="/footer"></c:import>
 </body>
 </html>
