@@ -6,15 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-	<link rel="stylesheet" href="/resources/style/user/sign-up.css">
+	<link rel="stylesheet" href="/resources/style/user/form.css">
 	<c:import url="/header"></c:import>
 </head>
 <body>
 	<c:if test="${not empty user}">
 		<c:redirect url="/myPage"></c:redirect>
 	</c:if>
-	<div id="sign-up-container">
-		<form id="form-sign-up" method="POST" action="/signUpAction">
+	<div class="root">
+		<form class="form" method="POST" action="/signUpAction">
 			<div>
 				<p>아이디</p>
 				<input type="text" name="id" id="id" >
