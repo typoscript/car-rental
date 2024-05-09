@@ -31,6 +31,21 @@ public class CarDao {
 
 			rs = pstmt.executeQuery();
 			
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String brand = rs.getString(2);
+				String name = rs.getString(3);
+				String type = rs.getString(4);
+				String fuelType = rs.getString(5);
+				int year = rs.getInt(6);
+				String imgUrl = rs.getString(7);
+				int fee = rs.getInt(8);
+				int mileage = rs.getInt(9);
+				
+				CarResponseDto car = new CarResponseDto(id, brand, name, type, fuelType, year, imgUrl, fee, mileage);
+				
+				cars.add(car);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: findCarAll");
