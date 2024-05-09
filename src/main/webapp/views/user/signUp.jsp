@@ -22,7 +22,7 @@
 			</div>
 			<div>
 				<p>비밀번호</p>
-				<input type="text" name="password" id="password" >
+				<input type="password" name="password" id="password" >
 				<p class="err err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 			</div>
 			<div>
