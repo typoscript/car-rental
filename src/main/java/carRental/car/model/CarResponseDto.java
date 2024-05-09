@@ -10,6 +10,18 @@ public class CarResponseDto {
 	private String imgUrl;
 	private int fee;
 	private int mileage;
+	
+	public CarResponseDto(String id, String brand, String name, String type, String fuelType, int year, String imgUrl, int fee, int mileage) {
+		this.id = id;
+		this.brand = brand;
+		this.name = name;
+		this.type = type;
+		this.fuelType = fuelType;
+		this.year = year;
+		this.imgUrl = imgUrl;
+		this.fee = fee;
+		this.mileage = mileage;
+	}
 
 	public String getId() {
 		return id;
