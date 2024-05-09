@@ -11,7 +11,7 @@
 		<h1><a href="/">렌터카</a></h1>
 		<nav>
 			<ul>
-				<li><a href="/reservation">예약</a></li>
+				<li><a href="/reservationCarList">예약</a></li>
 				<li><a href="/board">게시판</a></li>
 				<li><a href="/login">로그인</a></li>
 			</ul>
