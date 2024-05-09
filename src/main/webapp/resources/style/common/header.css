@@ -1,0 +1,37 @@
+header > * {
+	text-align: center;
+}
+
+header > h1 {
+	margin: 30px 0;
+}
+
+header > h1 > a,
+header > h1 > a:visited {
+	font-size: 35px;
+	color: #5dd96a;
+}
+
+header > h1 > a:hover {
+	color: #38b044;
+}
+
+header > nav {
+	background-color: #5dd96a;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+header > nav > ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+header > nav > ul > li > a {
+	color: white;
+	font-size: 20px;
+}
+
+header > nav > ul > li > a:hover {
+	color: #38b044;
+}
