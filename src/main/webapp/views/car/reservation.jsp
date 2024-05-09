@@ -11,4 +11,5 @@
 <body>
 	<c:import url="/footer"></c:import>
 </body>
+<script src="/resources/script/car/reservation.js"></script>
 </html>
