@@ -200,16 +200,15 @@ public class UserDao {
 			
 			rs = pstmt.executeQuery();
 		
-			if (!rs.next())
-				return user;
-
-			String name = rs.getString(2);
-			String address = rs.getString(3);
-			String phone = rs.getString(4);
-			boolean isAdmin = rs.getBoolean(5);
-			Timestamp regDate = rs.getTimestamp(6);
-			
-			user = new User(id, name, address, phone, isAdmin, regDate);
+			if (rs.next()) {
+				String name = rs.getString(2);
+				String address = rs.getString(3);
+				String phone = rs.getString(4);
+				boolean isAdmin = rs.getBoolean(5);
+				Timestamp regDate = rs.getTimestamp(6);
+				
+				user = new User(id, name, address, phone, isAdmin, regDate);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: findUserById");
