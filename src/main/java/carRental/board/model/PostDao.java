@@ -26,6 +26,14 @@ public class PostDao {
 		
 		try {
 			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, postDto.getUserId());
+			pstmt.setString(2, postDto.getTitle());
+			pstmt.setString(3, postDto.getContent());
+			pstmt.setBoolean(4, postDto.isNotice());
+
+			pstmt.execute();
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: createPost");
