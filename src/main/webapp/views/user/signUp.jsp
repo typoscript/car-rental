@@ -45,7 +45,7 @@
 				<input type="checkbox" name="isAdmin" id="isAdmin" >
 			</div>
 
-			<input type="submit" class="btn btn-sign-up" value="회원가입" >
+			<input type="submit" class="btn btn-success" value="회원가입" >
 		</form>
 	</div>
 	<c:import url="/footer"></c:import>
