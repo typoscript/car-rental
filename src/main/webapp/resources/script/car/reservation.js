@@ -57,8 +57,9 @@ function createReservationButton(id) {
 	const btn = document.createElement("button");
 	
 	$(btn).text("예약");
-	$(btn).attr("id", id);
 	$(btn).addClass("btn btn-primary");
+	$(btn).attr("id", id);
+	$(btn).attr("onclick", "location.href='/reservation'");
 	
 	return btn;
 }
