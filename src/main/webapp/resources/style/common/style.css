@@ -60,8 +60,7 @@ input[type="submit"] {
 	color: #000000;
 }
 
-.btn.btn-login,
-.btn.btn-sign-up {
+.btn.btn-success {
 	background-color: #5dd96a;
 	color: #ffffff;
 }
