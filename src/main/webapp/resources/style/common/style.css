@@ -1,0 +1,66 @@
+/**
+
+초록
+	#5dd96a;
+진 초록
+	#38b044;
+진진 초록
+	#12661b;
+	
+	
+연 네이비
+	#6575b5;
+네이비
+	#445491;
+**/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+body {	
+	width: 60vw;
+	height: 100vh;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;	
+}
+
+li {
+	list-style: none;
+}
+
+input[type="text"] {
+	height: 20px;
+	border-radius: 10px;
+	border: 2px solid #5dd96a;
+	outline-color: #12661b;
+	padding: 5px;
+}
+
+input[type="submit"] {
+	cursor: pointer;
+	height: 3rem;
+	width: 7rem;	
+	font-size: 1.3rem;
+}
+
+.btn {
+	border: none;
+	border-radius: 10px;
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.btn.btn-login,
+.btn.btn-sign-up {
+	background-color: #5dd96a;
+	color: #ffffff;
+}
