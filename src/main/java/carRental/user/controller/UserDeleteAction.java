@@ -44,11 +44,11 @@ public class UserDeleteAction extends HttpServlet {
 
 		String id = user.getId();
 		String password = request.getParameter("password");
-
+		
 		UserRequestDto userDto = new UserRequestDto();
 
 		userDto.setId(id);
-		userDto.setPassword(PasswordCrypto.encrypt(password));
+		userDto.setPassword(password);
 
 		boolean result = userDao.deleteUser(userDto);
 
