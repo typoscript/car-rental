@@ -22,5 +22,22 @@ public class CarDao {
 
 	public List<CarResponseDto> findCarAll() {
 		String sql = "SELECT id, brand, name, type, fuel_type, year, img_url, fee, mileage FROM cars";
+		List<CarResponseDto> cars = new ArrayList<>();
+		
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findCarAll");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return cars;
 	}
 }
