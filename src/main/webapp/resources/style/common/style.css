@@ -81,3 +81,7 @@ input[type="submit"] {
 	background-color: #eb4034;
 	color: #ffffff;
 }
+
+.err {
+	display: none;
+}
