@@ -1,4 +1,4 @@
-package car.controller;
+package carRental.car.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
