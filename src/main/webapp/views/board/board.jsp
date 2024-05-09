@@ -14,7 +14,7 @@
 	</c:if>
 	
 	<div>
-		<button class="btn btn-primary" onclick="location.href='/postWrite'">글쓰기</button>
+		<button class="btn btn-primary" onclick="location.href='/postCreate'">글쓰기</button>
 	</div>
 	
 	<c:import url="/footer"></c:import>
