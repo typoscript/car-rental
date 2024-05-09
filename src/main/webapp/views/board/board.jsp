@@ -12,6 +12,7 @@
 	<c:if test="${empty user}">
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
+	
 
 	<c:import url="/footer"></c:import>
 </body>
