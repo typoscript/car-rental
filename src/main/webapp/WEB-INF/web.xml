@@ -65,6 +65,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>userDelete</servlet-name>
+    <jsp-file>/views/user/userDelete.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userDelete</servlet-name>
+    <url-pattern>/userDelete</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>loginAction</servlet-name>
     <servlet-class>carRental.user.controller.LoginAction</servlet-class>
   </servlet>
