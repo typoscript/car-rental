@@ -1,0 +1,41 @@
+#err-msg-id,
+#err-msg-password,
+#err-msg-name,
+#err-msg-address,
+#err-msg-phone {
+	display: none;
+	color: tomato;
+
+}
+
+#sign-up-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+}
+
+#form-sign-up {
+	width: 600px;	
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #e7f6e8;
+	display: flex;
+	flex-direction: column;
+}
+
+#form-sign-up > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 300px;
+	margin: 0 auto;
+}
+
+#form-sign-up > div > * {
+	margin: 10px 0;	
+}
+
+#form-sign-up > .btn.btn-sign-up {
+	margin: 0 auto;
+}
