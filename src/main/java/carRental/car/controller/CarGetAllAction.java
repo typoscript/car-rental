@@ -42,6 +42,21 @@ public class CarGetAllAction extends HttpServlet {
 		JSONObject currentCar = new JSONObject();
 		JSONArray carArr = new JSONArray();
 		
+		for (CarResponseDto car : carDao.findCarAll()) {
+			currentCar = new JSONObject();
+			currentCar.put("brand", car.getBrand());
+			currentCar.put("name", car.getName());
+			currentCar.put("type", car.getType());
+			currentCar.put("fuelType", car.getFuelType());
+			currentCar.put("year", car.getYear());
+			currentCar.put("imgUrl", car.getImgUrl());
+			currentCar.put("fee", car.getFee());
+			currentCar.put("mileage", car.getMileage());
+			
+			carArr.put(currentCar);
+		}
+
+		json.put("cars", carArr);
 	}
 
 	/**
