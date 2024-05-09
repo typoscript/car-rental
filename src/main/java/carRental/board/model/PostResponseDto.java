@@ -9,6 +9,16 @@ public class PostResponseDto {
 	private boolean isNotice;
 	private Timestamp creationDate;
 	private Timestamp modificationDate;
+	
+	public PostResponseDto(String userId, String title, String content, boolean isNotice, Timestamp creationDate,
+			Timestamp modificationDate) {
+		this.userId = userId;
+		this.title = title;
+		this.content = content;
+		this.isNotice = isNotice;
+		this.creationDate = creationDate;
+		this.modificationDate = modificationDate;
+	}
 
 	public String getUserId() {
 		return userId;
