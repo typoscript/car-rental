@@ -6,6 +6,22 @@ $(document).ready(() => {
 	fetch(URL, {
 		method: "GET",
 	}).then(response => response.json())
-	.then(data => console.log(data))
+	.then(data => generateCarList(data))
 	.catch(e => console.log(e));
-})
+});
+
+function createCarCard(car) {
+	const cardContainer = document.createElement("div");
+
+	const img = document.createElement("img");
+	const infoContainer = document.createElement("div");
+	
+	$(img).attr("src", car.imgUrl);
+	
+	infoContainer.append(createCarInfoContainer(car));
+	
+	cardContainer.appendChild(img);
+	cardContainer.appendChild(infoContainer);
+
+	return cardContainer;
+}
