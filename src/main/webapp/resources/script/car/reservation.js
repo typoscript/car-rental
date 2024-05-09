@@ -16,6 +16,36 @@ function generateCarList(data) {
 	}
 }
 
+function createCarInfoContainer(car) {
+	const container = document.createElement("div");
+	
+	const brand = document.createElement("p");
+	const name = document.createElement("p");
+	const type = document.createElement("p");
+	const fuelType = document.createElement("p");
+	const year = document.createElement("p");
+	const fee = document.createElement("p");
+	const mileage = document.createElement("p");
+	
+	$(brand).text(car.brand);
+	$(name).text(car.name);
+	$(type).text(car.type);
+	$(fuelType).text(car.fuelType);
+	$(year).text(car.year);
+	$(fee).text(car.fee);
+	$(mileage).text(car.mileage);
+	
+	container.append(brand);
+	container.append(name);
+	container.append(type);
+	container.append(fuelType);
+	container.append(year);
+	container.append(fee);
+	container.append(mileage);
+
+	return container;
+}
+
 function createCarCard(car) {
 	const cardContainer = document.createElement("div");
 
