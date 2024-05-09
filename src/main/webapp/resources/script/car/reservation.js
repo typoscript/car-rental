@@ -46,19 +46,22 @@ function createCarInfoContainer(car) {
 	return container;
 }
 
+function createCarImg(imgUrl) {
+	const img = document.createElement("img");
+	$(img).attr("src", imgUrl);
+	
+	return img;
+}
+
 function createCarCard(car) {
 	const cardContainer = document.createElement("div");
 	
 	$(cardContainer).addClass("card-car");
-
-	const img = document.createElement("img");
 	const infoContainer = document.createElement("div");
-	
-	$(img).attr("src", car.imgUrl);
 	
 	infoContainer.append(createCarInfoContainer(car));
 	
-	cardContainer.appendChild(img);
+	cardContainer.appendChild(createImg(car.imgUrl));
 	cardContainer.appendChild(infoContainer);
 
 	return cardContainer;
