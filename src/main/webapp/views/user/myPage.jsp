@@ -15,8 +15,8 @@
 
 	<div>
 		<h1>${user.getName()}님의 마이페이지</h1>
-		<button onclick="location.href='/LogoutAction'">로그아웃</button>
-		<button onclick="location.href='/userUpdate'">회원정보 수정</button>
+		<button class="btn btn-danger" onclick="location.href='/LogoutAction'">로그아웃</button>
+		<button class="btn btn-primary" onclick="location.href='/userUpdate'">회원정보 수정</button>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
