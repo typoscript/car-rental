@@ -93,6 +93,7 @@ public class UserDao {
 			return null;
 		
 		try {
+			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, PasswordCrypto.encrypt(newPassword));
@@ -173,6 +174,7 @@ public class UserDao {
 		String sql = "DELETE FROM users WHERE id=?";
 
 		try {
+			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, userDto.getId());
