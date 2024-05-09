@@ -9,4 +9,6 @@ public class CarDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+
+	private CarDao() { }
 }
