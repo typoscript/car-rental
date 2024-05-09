@@ -10,6 +10,8 @@ public class PostRequestDto {
 	private Timestamp creationDate;
 	private Timestamp modificationDate;
 	
+	public PostRequestDto() { }
+	
 	public PostRequestDto(String userId, String title, String content, boolean isNotice, Timestamp creationDate,
 			Timestamp modificationDate) {
 		this.userId = userId;
