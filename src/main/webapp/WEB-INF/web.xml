@@ -84,6 +84,7 @@
   </servlet-mapping>
 <!-- 유저 끝 -->
 
+<!-- 게시판 끝 -->
   <servlet>
     <servlet-name>board</servlet-name>
     <jsp-file>/views/user/board.jsp</jsp-file>
@@ -92,5 +93,6 @@
     <servlet-name>board</servlet-name>
     <url-pattern>/board</url-pattern>
   </servlet-mapping>
+<!-- 게시판 끝 -->
 
 </web-app>
