@@ -15,7 +15,7 @@
 	</c:if>
 
 	<div class="root">
-		<form class="form" method="POST" action="/userUpdateAction">
+		<form class="form" method="POST" action="/UserUpdateAction">
 			<div>
 				<p>기존 비밀번호</p>
 				<input type="password" name="password">
@@ -29,7 +29,7 @@
 			</div>
 			<div>
 				<p>이름</p>
-				<input type="text" name="name" disabled>
+				<input type="text" name="name" disabled value="${user.getName()}">
 			</div>
 			<div>
 				<p>주소</p>
