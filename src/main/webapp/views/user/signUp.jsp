@@ -10,6 +10,9 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
+	<c:if test="${not empty user}">
+		<c:redirect url="/myPage"></c:redirect>
+	</c:if>
 	<div id="sign-up-container">
 		<form id="form-sign-up" method="POST" action="/signUpAction">
 			<div>
