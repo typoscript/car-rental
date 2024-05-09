@@ -20,37 +20,37 @@ function isValidInput() {
 
 	if (!isValidId(id)) {
 		isValid = false;
-		$("#err-msg-id").show();
+		$(".err-msg-id").show();
 	} else {
-		$("#err-msg-id").hide();
+		$(".err-msg-id").hide();
 	}
 
 	if (!isValidPassword(password)) {
 		isValid = false;
-		$("#err-msg-password").show();
+		$(".err-msg-password").show();
 	} else {
-		$("#err-msg-password").hide();
+		$(".err-msg-password").hide();
 	}
 
 	if (!isValidName(name)) {
 		isValid = false;
-		$("#err-msg-name").show();
+		$(".err-msg-name").show();
 	} else {
-		$("#err-msg-name").hide();
+		$(".err-msg-name").hide();
 	}
 
 	if (!isValidAddress(address)) {
 		isValid = false;
-		$("#err-msg-address").show();
+		$(".err-msg-address").show();
 	} else {
-		$("#err-msg-address").hide();
+		$(".err-msg-address").hide();
 	}
 
 	if (!isValidPhone(phone)) {
 		isValid = false;
-		$("#err-msg-phone").show();
+		$(".err-msg-phone").show();
 	} else {
-		$("#err-msg-phone").hide();
+		$(".err-msg-phone").hide();
 	}
 	
 	return isValid;
