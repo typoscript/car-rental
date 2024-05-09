@@ -40,7 +40,8 @@ public class UserUpdateAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String password = request.getParameter("password");
-		String passwordNew = request.getParameter("passwordNew");
+		String name = request.getParameter("name");
+		String newPassword = request.getParameter("newPassword");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		
@@ -54,8 +55,10 @@ public class UserUpdateAction extends HttpServlet {
 			return;
 		}
 		
+		userDto.setId(user.getId());
+
 		userDto.setPassword(password);
-		userDao.updateUserPassword(userDto, passwordNew);
+		userDao.updateUserPassword(userDto, newPassword);
 		
 		userDto.setAddress(address);
 		userDao.updateUserAddress(userDto);
