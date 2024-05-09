@@ -57,6 +57,10 @@ public class CarGetAllAction extends HttpServlet {
 		}
 
 		json.put("cars", carArr);
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json.toString());
 	}
 
 	/**
