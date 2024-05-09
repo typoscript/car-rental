@@ -11,4 +11,8 @@ public class CarDao {
 	private ResultSet rs;
 
 	private CarDao() { }
+
+	public static CarDao getInstance() {
+		return instance;
+	}
 }
