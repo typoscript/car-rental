@@ -21,6 +21,8 @@ public class UserDao {
 	}
 	
 	public UserResponseDto findUserByIdAndPassword(String id, String password) {
+		UserResponseDto user = null;
+
 		String sql = "SELECT password, name, address, phone, is_admin, reg_date"
 				+ " FROM users WHERE id=?";
 		
@@ -44,7 +46,7 @@ public class UserDao {
 			if (!PasswordCrypto.decrypt(password, encryptedPassword))
 				return null;
 			
-			return new UserResponseDto(id, name, address, phone, isAdmin, regDate);
+			user = new UserResponseDto(id, name, address, phone, isAdmin, regDate);
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("UserDao -> findUserByIdAndPassword()");
@@ -52,10 +54,11 @@ public class UserDao {
 			DBManager.close(conn, pstmt, rs);
 		}
 		
-		return null;
+		return user;
 	}
 	
 	public UserResponseDto createUser(UserRequestDto userDto) {
+		UserResponseDto user = null;
 		String sql = "" +
 				"INSERT INTO users(id, password, name, address, phone, is_admin, reg_date)" +
 				" VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -74,7 +77,7 @@ public class UserDao {
 			
 			pstmt.execute();
 
-			return findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
+			user = findUserByIdAndPassword(userDto.getId(), userDto.getPassword());
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: UserDao -> createUser()");
@@ -82,10 +85,11 @@ public class UserDao {
 			DBManager.close(conn, pstmt);
 		}
 
-		return null;
+		return user;
 	}
 
 	public UserResponseDto updateUserPassword(UserRequestDto userDto, String newPassword) {
+		UserResponseDto user = null;
 		String sql = "UPDATE users SET password=? WHERE id=?";
 		
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
@@ -100,7 +104,7 @@ public class UserDao {
 			pstmt.execute();
 
 			User userVo = findUserById(userDto.getId());
-			return new UserResponseDto(userVo);
+			user = new UserResponseDto(userVo);
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: updateUserPassword");
@@ -108,10 +112,11 @@ public class UserDao {
 			DBManager.close(conn, pstmt);
 		}
 
-		return null;
+		return user;
 	}
 
 	public UserResponseDto updateUserAddress(UserRequestDto userDto) {
+		UserResponseDto user = null;
 		String sql = "UPDATE users SET address=? WHERE id=? AND password=?";
 
 		try {
@@ -125,7 +130,7 @@ public class UserDao {
 			pstmt.execute();
 
 			User userVo = findUserById(userDto.getId());
-			return new UserResponseDto(userVo);
+			user = new UserResponseDto(userVo);
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: updateUserAddress");
@@ -133,10 +138,11 @@ public class UserDao {
 			DBManager.close(conn, pstmt);
 		}
 
-		return null;
+		return user;
 	}
 
 	public UserResponseDto updateUserPhone(UserRequestDto userDto) {
+		UserResponseDto user = null;
 		String sql = "UPDATE users SET phone=? WHERE id=? AND password=?";
 
 		try {
@@ -150,7 +156,7 @@ public class UserDao {
 			pstmt.execute();
 
 			User userVo = findUserById(userDto.getId());
-			return new UserResponseDto(userVo);
+			user = new UserResponseDto(userVo);
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: updateUserPhone");
@@ -158,10 +164,11 @@ public class UserDao {
 			DBManager.close(conn, pstmt);
 		}
 
-		return null;
+		return user;
 	}
 
 	public boolean deleteUser(UserRequestDto userDto) {
+		boolean isDeleted = true;
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
 			return false;
 
@@ -174,16 +181,15 @@ public class UserDao {
 			pstmt.setString(2, userDto.getPassword());
 
 			pstmt.execute();
-
-			return true;
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: deleteUser");
+			isDeleted = false;
 		} finally {
 			DBManager.close(conn, pstmt);
 		}
 
-		return false;
+		return isDeleted;
 	}
 
 	private User findUserById(String id) {
