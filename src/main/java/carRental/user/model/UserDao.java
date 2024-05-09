@@ -136,6 +136,31 @@ public class UserDao {
 		return null;
 	}
 
+	public UserResponseDto updateUserPhone(UserRequestDto userDto) {
+		String sql = "UPDATE users SET phone=? WHERE id=? AND password=?";
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, userDto.getPhone());
+			pstmt.setString(2, userDto.getId());
+			pstmt.setString(3, userDto.getPassword());
+
+			pstmt.execute();
+
+			User userVo = findUserById(userDto.getId());
+			return new UserResponseDto(userVo);
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: updateUserPhone");
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+		return null;
+	}
+
 	private User findUserById(String id) {
 		User user = null;
 		String sql = "SELECT id, name, address, phone, is_admin, reg_date FROM users WHERE id=?";
