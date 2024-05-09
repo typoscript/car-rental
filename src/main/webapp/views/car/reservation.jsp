@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="/resources/style/car/reservation.css"/>
 </head>
 <body>
+	<c:if test="${empty user}">
+		<c:redirect url="/login"></c:redirect>
+	</c:if>
+
 	<div class="root">
 	</div>
 	<c:import url="/footer"></c:import>
