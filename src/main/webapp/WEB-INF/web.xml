@@ -87,7 +87,7 @@
 <!-- 게시판 끝 -->
   <servlet>
     <servlet-name>board</servlet-name>
-    <jsp-file>/views/user/board.jsp</jsp-file>
+    <jsp-file>/views/board/board.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>board</servlet-name>
