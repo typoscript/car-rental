@@ -24,7 +24,7 @@
 				<p>비밀번호</p>
 				<input type="password" name="password" >
 			</div>
-			<input type="submit" class="btn btn-login" value="로그인" >
+			<input type="submit" class="btn btn-success" value="로그인" >
 		</form>
 		<p id="sign-up"><a href="/signUp">회원가입</a></p>
 	</div>
