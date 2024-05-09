@@ -15,4 +15,8 @@ public class PostDao {
 	public static PostDao getInstance() {
 		return instance;
 	}
+
+	public PostDao createPost(PostDao postDto) {
+
+	}
 }
