@@ -13,7 +13,14 @@
 			<ul>
 				<li><a href="/reservationCarList">예약</a></li>
 				<li><a href="/board">게시판</a></li>
-				<li><a href="/login">로그인</a></li>
+				<c:choose>
+					<c:when test="${not empty user}">
+						<li><a href="/myPage">마이페이지</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="/login">로그인</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</nav>
 	</header>
