@@ -14,8 +14,8 @@
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
 
-	<div id="user-update-container">
-		<form id="form-user-update" method="POST" action="/userUpdateAction">
+	<div class="root">
+		<form class="form" method="POST" action="/userUpdateAction">
 			<div>
 				<p>기존 비밀번호</p>
 				<input type="password" name="password">
