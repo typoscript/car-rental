@@ -37,6 +37,10 @@ li {
 	list-style: none;
 }
 
+button {
+	cursor: pointer;
+}
+
 input[type="text"],
 input[type="password"] {
 	height: 20px;
