@@ -11,4 +11,8 @@ public class PostDao {
 	private ResultSet rs;
 	
 	private PostDao() { }
+	
+	public static PostDao getInstance() {
+		return instance;
+	}
 }
