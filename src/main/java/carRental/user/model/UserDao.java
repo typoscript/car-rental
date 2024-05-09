@@ -33,20 +33,17 @@ public class UserDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if (!rs.next())
-				return null;
+			if (rs.next()) {
+				String encryptedPassword = rs.getString(1);
+				String name = rs.getString(2);
+				String address = rs.getString(3);
+				String phone = rs.getString(4);
+				boolean isAdmin = rs.getBoolean(5);
+				Timestamp regDate = rs.getTimestamp(6);
 
-			String encryptedPassword = rs.getString(1);
-			String name = rs.getString(2);
-			String address = rs.getString(3);
-			String phone = rs.getString(4);
-			boolean isAdmin = rs.getBoolean(5);
-			Timestamp regDate = rs.getTimestamp(6);
-
-			if (!PasswordCrypto.decrypt(password, encryptedPassword))
-				return null;
-			
-			user = new UserResponseDto(id, name, address, phone, isAdmin, regDate);
+				if (PasswordCrypto.decrypt(password, encryptedPassword))
+					user = new UserResponseDto(id, name, address, phone, isAdmin, regDate);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("UserDao -> findUserByIdAndPassword()");
