@@ -5,4 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class PostDao {
+	private static PostDao instance = new PostDao();
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 }
