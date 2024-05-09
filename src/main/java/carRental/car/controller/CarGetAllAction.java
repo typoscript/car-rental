@@ -1,11 +1,21 @@
 package carRental.car.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.mysql.cj.xdevapi.JsonArray;
+
+import carRental.car.model.CarDao;
+import carRental.car.model.CarResponseDto;
 
 /**
  * Servlet implementation class CarGetAllAction
@@ -26,7 +36,12 @@ public class CarGetAllAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		CarDao carDao = CarDao.getInstance();
+		
+		JSONObject json = new JSONObject();
+		JSONObject currentCar = new JSONObject();
+		JSONArray carArr = new JSONArray();
+		
 	}
 
 	/**
