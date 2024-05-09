@@ -3,6 +3,8 @@ package carRental.board.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import carRental.util.DBManager;
@@ -48,5 +50,21 @@ public class PostDao {
 
 	public List<PostResponseDto> findPostAll() {
 		String sql = "SELECT user_id, title, content, is_notice, creation_date, modification_date FROM board";
+		List<PostResponseDto> cars = new ArrayList<>();
+
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findCarAll");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return cars;
 	}
 }
