@@ -48,6 +48,8 @@ function createCarInfoContainer(car) {
 
 function createCarCard(car) {
 	const cardContainer = document.createElement("div");
+	
+	$(cardContainer).addClass("card-car");
 
 	const img = document.createElement("img");
 	const infoContainer = document.createElement("div");
