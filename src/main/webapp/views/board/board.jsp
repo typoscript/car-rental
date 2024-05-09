@@ -13,7 +13,10 @@
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
 	
-
+	<div>
+		<button class="btn btn-primary" onclick="location.href='/postWrite'">글쓰기</button>
+	</div>
+	
 	<c:import url="/footer"></c:import>
 </body>
 </html>
