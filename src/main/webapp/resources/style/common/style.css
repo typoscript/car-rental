@@ -60,7 +60,17 @@ input[type="submit"] {
 	color: #000000;
 }
 
-.btn.btn-success {
+.btn-success {
 	background-color: #5dd96a;
+	color: #ffffff;
+}
+
+.btn-primary {
+	background-color: #4558d1;
+	color: #ffffff;
+}
+
+.btn-danger {
+	background-color: #eb4034;
 	color: #ffffff;
 }
