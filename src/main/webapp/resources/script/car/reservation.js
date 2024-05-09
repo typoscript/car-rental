@@ -10,6 +10,12 @@ $(document).ready(() => {
 	.catch(e => console.log(e));
 });
 
+function generateCarList(data) {
+	for (const car of data.cars) {
+		$(".root").append(createCarCard(car));
+	}
+}
+
 function createCarCard(car) {
 	const cardContainer = document.createElement("div");
 
