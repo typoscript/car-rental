@@ -47,6 +47,6 @@ public class PostDao {
 	}
 
 	public List<PostResponseDto> findPostAll() {
-		
+		String sql = "SELECT user_id, title, content, is_notice, creation_date, modification_date FROM board";
 	}
 }
