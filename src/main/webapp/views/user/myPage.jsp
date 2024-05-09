@@ -9,6 +9,10 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
+	<c:if test="${empty user}">
+		<c:redirect url="/login"></c:redirect>
+	</c:if>
+
 	<div>
 		<h1>${user.getName()}님의 마이페이지</h1>
 		<button onclick="location.href='/userUpdate'">회원정보 수정</button>
