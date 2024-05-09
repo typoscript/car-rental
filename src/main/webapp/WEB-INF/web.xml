@@ -56,6 +56,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>userUpdate</servlet-name>
+    <jsp-file>/views/user/userUpdate.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userUpdate</servlet-name>
+    <url-pattern>/userUpdate</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>loginAction</servlet-name>
     <servlet-class>carRental.user.controller.LoginAction</servlet-class>
   </servlet>
