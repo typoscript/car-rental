@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-	<link rel="stylesheet" href="/resources/style/user/signUp.css">
+	<link rel="stylesheet" href="/resources/style/user/sign-up.css">
 	<c:import url="/header"></c:import>
 </head>
 <body>
