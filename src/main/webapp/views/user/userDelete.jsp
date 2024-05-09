@@ -19,7 +19,7 @@
 				<p>기존 비밀번호</p>
 				<input type="password" name="password" >
 			</div>
-			<input type="submit" class="btn btn-danger" value="회워탈퇴" >
+			<input type="submit" class="btn btn-danger" value="회원탈퇴" >
 		</form>
 	</div>
 
