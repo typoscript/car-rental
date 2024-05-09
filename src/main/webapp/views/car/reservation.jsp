@@ -9,6 +9,8 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
+	<div class="root">
+	</div>
 	<c:import url="/footer"></c:import>
 </body>
 <script src="/resources/script/car/reservation.js"></script>
