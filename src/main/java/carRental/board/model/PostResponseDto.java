@@ -1,5 +1,12 @@
 package carRental.board.model;
 
-public class PostResponseDto {
+import java.sql.Timestamp;
 
+public class PostResponseDto {
+	private String userId;
+	private String title;
+	private String content;
+	private boolean isNotice;
+	private Timestamp creationDate;
+	private Timestamp modificationDate;
 }
