@@ -1,5 +1,12 @@
 package carRental.car.model;
 
-public class CarDao {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+public class CarDao {
+	private static CarDao instance = new CarDao();
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 }
