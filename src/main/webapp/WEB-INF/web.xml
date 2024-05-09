@@ -10,6 +10,7 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
 
+<!-- 유저 시작 -->
   <servlet>
     <servlet-name>header</servlet-name>
     <jsp-file>/views/module/header.jsp</jsp-file>
@@ -80,6 +81,16 @@
   <servlet-mapping>
     <servlet-name>loginAction</servlet-name>
     <url-pattern>/loginAction</url-pattern>
+  </servlet-mapping>
+<!-- 유저 끝 -->
+
+  <servlet>
+    <servlet-name>board</servlet-name>
+    <jsp-file>/views/user/board.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>board</servlet-name>
+    <url-pattern>/board</url-pattern>
   </servlet-mapping>
 
 </web-app>
