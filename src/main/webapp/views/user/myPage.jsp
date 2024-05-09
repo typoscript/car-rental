@@ -10,7 +10,8 @@
 </head>
 <body>
 	<div>
-		<h1>마이페이지</h1>
+		<h1>${user.getName()}님의 마이페이지</h1>
+		<button onclick="location.href='/updateUser'">회원정보 수정</button>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
