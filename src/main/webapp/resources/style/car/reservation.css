@@ -3,3 +3,8 @@
 	flex-direction: row;
 	padding: 10px;
 }
+
+.card-car > img {
+	width: 300px;
+	height: 200px;	
+}
