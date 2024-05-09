@@ -1,13 +1,3 @@
-#err-msg-id,
-#err-msg-password,
-#err-msg-name,
-#err-msg-address,
-#err-msg-phone {
-	display: none;
-	color: tomato;
-
-}
-
 #sign-up-container {
 	display: flex;
 	flex-direction: column;
