@@ -106,12 +106,12 @@
 
 <!-- 예약 시작 -->
   <servlet>
-    <servlet-name>reservation</servlet-name>
-    <jsp-file>/views/car/reservation.jsp</jsp-file>
+    <servlet-name>reservationCarList</servlet-name>
+    <jsp-file>/views/car/reservationCarList.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>reservation</servlet-name>
-    <url-pattern>/reservation</url-pattern>
+    <servlet-name>reservationCarList</servlet-name>
+    <url-pattern>/reservationCarList</url-pattern>
   </servlet-mapping>
 <!-- 예약 끝 -->
 </web-app>
