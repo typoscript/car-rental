@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>차량 예약</title>
+<title>예약 차량 리스트</title>
 	<c:import url="/header"></c:import>
 	<link rel="stylesheet" href="/resources/style/car/reservationCarList.css"/>
 </head>
