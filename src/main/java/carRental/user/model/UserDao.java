@@ -144,7 +144,7 @@ public class UserDao {
 
 	public UserResponseDto updateUserPhone(UserRequestDto userDto) {
 		UserResponseDto user = null;
-		String sql = "UPDATE users SET phone=? WHERE id=? AND password=?";
+		String sql = "UPDATE users SET phone=? WHERE id=?";
 
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
 			return null;
