@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import carRental.user.model.UserDao;
+import carRental.user.model.UserRequestDto;
+import carRental.user.model.UserResponseDto;
 
 /**
  * Servlet implementation class UserUpdateAction
@@ -34,6 +39,30 @@ public class UserUpdateAction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
+		String password = request.getParameter("password");
+		String passwordNew = request.getParameter("passwordNew");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		
+		UserDao userDao = UserDao.getInstance();
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		UserRequestDto userDto = new UserRequestDto();
 
+		if (userDao.findUserByIdAndPassword(user.getId(), password) == null) {
+			response.sendRedirect("/userUpdate");
+			return;
+		}
+		
+		userDto.setPassword(password);
+		userDao.updateUserPassword(userDto, passwordNew);
+		
+		userDto.setAddress(address);
+		userDao.updateUserAddress(userDto);
+
+		userDto.setPhone(phone);
+		userDao.updateUserPhone(userDto);
+
+		response.sendRedirect("/myPage");
+	}
 }
