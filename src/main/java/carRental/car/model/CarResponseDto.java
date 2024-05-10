@@ -1,7 +1,7 @@
 package carRental.car.model;
 
 public class CarResponseDto {
-	private String id;
+	private int id;
 	private String brand;
 	private String name;
 	private String type;
@@ -11,7 +11,7 @@ public class CarResponseDto {
 	private int fee;
 	private int mileage;
 	
-	public CarResponseDto(String id, String brand, String name, String type, String fuelType, int year, String imgUrl, int fee, int mileage) {
+	public CarResponseDto(int id, String brand, String name, String type, String fuelType, int year, String imgUrl, int fee, int mileage) {
 		this.id = id;
 		this.brand = brand;
 		this.name = name;
@@ -23,10 +23,10 @@ public class CarResponseDto {
 		this.mileage = mileage;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getBrand() {
