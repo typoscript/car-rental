@@ -11,6 +11,12 @@ public class Reservation {
 	private LocalDate endDate;
 	private String status;
 	private Timestamp creationDate;
+	
+	public static class Status {
+		public static final String reserved = "예약";
+		public static final String cancelled = "취소";
+		public static final String expired = "만료";
+	}
 
 	public Reservation(int id, String userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
 		this.id = id;
