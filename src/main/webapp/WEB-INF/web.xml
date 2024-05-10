@@ -224,4 +224,13 @@
     <url-pattern>/reservationUpdate</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>BoardViewAction</servlet-name>
+    <servlet-class>carRental.board.controller.BoardViewAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoardViewAction</servlet-name>
+    <url-pattern>/board</url-pattern>
+  </servlet-mapping>
+
 </web-app>
