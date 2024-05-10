@@ -11,4 +11,8 @@ public class ReservationDao {
 	private ResultSet rs;
 	
 	private ReservationDao() { }
+
+	public static ReservationDao getInstance() {
+		return instance;
+	}
 }
