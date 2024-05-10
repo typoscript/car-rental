@@ -44,6 +44,7 @@ public class CarGetAllAction extends HttpServlet {
 		
 		for (CarResponseDto car : carDao.findCarAll()) {
 			currentCar = new JSONObject();
+			currentCar.put("id", car.getId());
 			currentCar.put("brand", car.getBrand());
 			currentCar.put("name", car.getName());
 			currentCar.put("type", car.getType());
