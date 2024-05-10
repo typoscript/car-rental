@@ -33,7 +33,7 @@
 					<p><%= car.getFee() %></p>
 					<p><%= car.getMileage() %></p>
 				</div>
-				<button class="btn btn-primary" onclick="location.href='/reservation?carId=<%=car.getId() %>'">예약</button>
+				<button class="btn btn-primary" onclick="location.href='/carReservationCreate?carId=<%=car.getId() %>'">예약</button>
 			</div>
 		<%
 		}
