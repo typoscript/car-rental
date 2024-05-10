@@ -36,6 +36,12 @@ public class ReservationCreateAction extends HttpServlet {
 		int fee = Integer.parseInt(request.getParameter("fee"));
 		int mileage = Integer.parseInt(request.getParameter("mileage"));
 		String imgUrl = request.getParameter("imgUrl");
+
+		CarResponseDto car = new CarResponseDto(carId, brand, name, type, fuelType, year, imgUrl, fee, mileage);
+
+		request.setAttribute("car", car);
+
+		request.getRequestDispatcher("/reservationCreatePage").forward(request, response);
 	}
 
 	/**
