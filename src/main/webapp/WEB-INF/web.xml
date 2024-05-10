@@ -140,7 +140,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutAction</servlet-name>
-    <url-pattern>/LogoutAction</url-pattern>
+    <url-pattern>/logoutAction</url-pattern>
   </servlet-mapping>
 
   <servlet>
