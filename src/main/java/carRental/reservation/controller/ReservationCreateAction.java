@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import carRental.car.model.CarResponseDto;
 import carRental.reservation.model.ReservationDao;
 import carRental.reservation.model.ReservationRequestDto;
+import carRental.user.model.UserResponseDto;
 
 /**
  * Servlet implementation class ReservationCreateAction
@@ -52,11 +54,22 @@ public class ReservationCreateAction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+
 		int carId = Integer.parseInt(request.getParameter("carId"));
 		LocalDate startDate = LocalDate.parse(request.getParameter("rentalStartDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("rentalEndDate"));
 		
+		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate);
+		ReservationDao reservationDao = ReservationDao .getInstance();
+				
+		if (reservationDao.createReservation(reservationDto)) {
+			response.sendRedirect("/myPage");
+			return;
+		}
+
+		response.sendRedirect("/");
 	}
 
 }
