@@ -260,4 +260,13 @@
     <url-pattern>/postUpdate</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PostViewAction</servlet-name>
+    <servlet-class>carRental.board.controller.PostViewAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostViewAction</servlet-name>
+    <url-pattern>/postView</url-pattern>
+  </servlet-mapping>
+
 </web-app>
