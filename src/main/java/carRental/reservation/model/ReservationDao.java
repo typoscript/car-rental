@@ -56,7 +56,7 @@ public class ReservationDao {
 	}
 
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
-		String sql = "SELECT res.id, start_date, end_date, cars.* "
+		String sql = "SELECT res.id, start_date, end_date, status, cars.* "
 			+ "FROM rental_reservations as res "
 			+ "JOIN cars ON cars.id = res.car_id "
 			+ "WHERE user_id=? AND status=?";
