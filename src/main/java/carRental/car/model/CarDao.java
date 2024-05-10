@@ -20,6 +20,10 @@ public class CarDao {
 		return instance;
 	}
 
+	public List<CarResponseDto> findCarByUserID(String userId) {
+
+	}
+
 	public List<CarResponseDto> findCarAll() {
 		String sql = "SELECT id, brand, name, type, fuel_type, year, img_url, fee, mileage FROM cars";
 		List<CarResponseDto> cars = new ArrayList<>();
