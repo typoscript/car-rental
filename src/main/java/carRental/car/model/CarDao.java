@@ -20,8 +20,7 @@ public class CarDao {
 		return instance;
 	}
 
-	public List<CarResponseDto> findCarByUserID(String userId) {
-
+	public List<CarResponseDto> findCarAllByUserID(userId) {
 	}
 
 	public List<CarResponseDto> findCarAll() {
