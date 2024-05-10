@@ -233,4 +233,13 @@
     <url-pattern>/board</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PostCreateAction</servlet-name>
+    <servlet-class>carRental.board.controller.PostCreateAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostCreateAction</servlet-name>
+    <url-pattern>/postCreate</url-pattern>
+  </servlet-mapping>
+
 </web-app>
