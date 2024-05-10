@@ -14,7 +14,7 @@
 	</c:if>
 
 	<div class="root">
-		<form class="form" method="POST" action="/UserDeleteAction">
+		<form class="form" method="POST" action="/userDeleteAction">
 			<div>
 				<p>기존 비밀번호</p>
 				<input type="password" name="password" >
