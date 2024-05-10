@@ -31,8 +31,8 @@ public class ReservationDao {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, reservationDto.getUserId());
-			pstmt.setInt(2, reservationDto.getCarId());
+			pstmt.setString(1, reservationDto.getUserId());
+			pstmt.setString(2, reservationDto.getCarId());
 
 			pstmt.setDate(3, Date.valueOf(reservationDto.getStartDate()));
 			pstmt.setDate(4, Date.valueOf(reservationDto.getEndDate()));
