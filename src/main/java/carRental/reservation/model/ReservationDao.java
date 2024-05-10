@@ -56,9 +56,8 @@ public class ReservationDao {
 	}
 
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
-		String sql = "SELECT res.id, start_date, end_date, status, cars.* "
-			+ "FROM rental_reservations as res "
-			+ "JOIN cars ON cars.id = res.car_id "
+		String sql = "SELECT id, car_id, start_date, end_date, status, creation_date "
+			+ "FROM rental_reservations "
 			+ "WHERE user_id=? AND status=?";
 
 		List<ReservationResponseDto> reservations = new ArrayList<>();
@@ -73,22 +72,12 @@ public class ReservationDao {
 			
 			while (rs.next()) {
 				int id = rs.getInt(1);
-				LocalDate startDate = LocalDate.parse(rs.getString(2));
-				LocalDate endDate = LocalDate.parse(rs.getString(3));
-				String status = rs.getString(4);
-
-				int carId = rs.getInt(5);
-				String brand = rs.getString(6);
-				String name = rs.getString(7);
-				String type = rs.getString(8);
-				String fuelType = rs.getString(9);
-				int year = rs.getInt(10);
-				String imgUrl = rs.getString(11);
-				int fee = rs.getInt(12);
-				int mileage = rs.getInt(13);
-				Timestamp creationDate = rs.getTimestamp(14);
+				int carId = rs.getInt(2);
+				LocalDate startDate = LocalDate.parse(rs.getString(3));
+				LocalDate endDate = LocalDate.parse(rs.getString(4));
+				String status = rs.getString(5);
+				Timestamp creationDate = rs.getTimestamp(6);
 				
-				CarResponseDto car = new CarResponseDto(carId, brand, name, type, fuelType, year, imgUrl, fee, mileage);
 				ReservationResponseDto reservation = new ReservationResponseDto(id, userId, carId, startDate, endDate, status, creationDate);
 				
 				reservations.add(reservation);
