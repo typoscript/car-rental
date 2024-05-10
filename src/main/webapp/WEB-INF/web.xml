@@ -178,4 +178,13 @@
     <servlet-name>CarListAction</servlet-name>
     <url-pattern>/carList</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CarReservationCreateAction</servlet-name>
+    <servlet-class>carRental.car.controller.CarReservationCreateAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarReservationCreate</servlet-name>
+    <url-pattern>/carReservationCreate</url-pattern>
+  </servlet-mapping>
 </web-app>
