@@ -22,6 +22,14 @@ public class ReservationRequestDto {
 		this.creationDate = creationDate;
 	}
 
+	public ReservationRequestDto(int userId, int carId, LocalDate startDate, LocalDate endDate, String status) {
+		this.userId = userId;
+		this.carId = carId;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.status = status;
+	}
+
 	public int getId() {
 		return id;
 	}
