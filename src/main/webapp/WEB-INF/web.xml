@@ -197,4 +197,13 @@
     <url-pattern>/myReservation</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ReservationDeleteAction</servlet-name>
+    <servlet-class>carRental.reservation.controller.ReservationDeleteAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservationDeleteAction</servlet-name>
+    <url-pattern>/reservationDelete</url-pattern>
+  </servlet-mapping>
+
 </web-app>
