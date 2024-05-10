@@ -33,11 +33,11 @@
 		<form class="form" method="POST" action="/reservationCreate">
 			<div>
 				<p>렌트 시작일</p>
-				<input type="date" name="rental-start-date">
+				<input type="date" name="rentalStartDate">
 			</div>
 			<div>
 				<p>렌트 종료일</p>
-				<input type="date" name="rental-end-date">
+				<input type="date" name="rentalEndDate">
 			</div>
 			<div>
 				<p>지불금액</p>
