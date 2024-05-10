@@ -99,7 +99,7 @@
 <!-- 예약 시작 -->
   <servlet>
     <servlet-name>reservationCarList</servlet-name>
-    <jsp-file>/views/car/reservationCarList.jsp</jsp-file>
+    <jsp-file>/views/reservation/reservationCarList.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>reservationCarList</servlet-name>
@@ -108,7 +108,7 @@
 
   <servlet>
     <servlet-name>reservationCreatePage</servlet-name>
-    <jsp-file>/views/car/reservationCreate.jsp</jsp-file>
+    <jsp-file>/views/reservation/reservationCreate.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>reservationCreatePage</servlet-name>
