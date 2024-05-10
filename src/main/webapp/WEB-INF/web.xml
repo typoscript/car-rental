@@ -119,8 +119,8 @@
     <jsp-file>/views/car/reservationCreate.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>reservationCreate</servlet-name>
-    <url-pattern>/reservationCreate</url-pattern>
+    <servlet-name>reservationCreatePage</servlet-name>
+    <url-pattern>/reservationCreatePage</url-pattern>
   </servlet-mapping>
 <!-- 예약 끝 -->
 
