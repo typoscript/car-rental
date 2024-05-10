@@ -38,6 +38,9 @@ public class ReservationViewAction extends HttpServlet {
 		CarDao carDao = CarDao.getInstance();
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+
+		List<ReservationResponseDto> reservations = reservationDao.findReservationAllByUserId(user.getId());
+		List<CarResponseDto> cars = carDao.findCarByUserId(user.getId());
 	}
 
 	/**
