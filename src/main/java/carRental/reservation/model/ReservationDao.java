@@ -5,12 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
 
-import carRental.car.model.CarResponseDto;
 import carRental.util.DBManager;
 
 public class ReservationDao {
@@ -53,6 +51,12 @@ public class ReservationDao {
 		}
 
 		return isCreated;
+	}
+
+	public boolean deleteReservation(ReservationRequestDto reservationDto) {
+		boolean isDeleted = true;
+
+		return isDeleted;
 	}
 
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
