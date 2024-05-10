@@ -15,7 +15,6 @@ import carRental.user.model.UserResponseDto;
 /**
  * Servlet implementation class PostWriteAction
  */
-@WebServlet("/PostCreateAction")
 public class PostCreateAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
