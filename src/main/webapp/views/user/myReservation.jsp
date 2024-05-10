@@ -44,8 +44,8 @@
 					<p><%= reservation.getStatus() %></p>
 				</div>
 				<div>
-					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?<%=reservation.getId()%>'">수정</button>
-					<button class="btn btn-danger" onclick="location.href='/reservationDelete?<%=reservation.getId()%>'">삭제</button>
+					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=<%=reservation.getId()%>'">수정</button>
+					<button class="btn btn-danger" onclick="location.href='/reservationDelete?id=<%=reservation.getId()%>'">삭제</button>
 				</div>
 			</div>
 	<%
