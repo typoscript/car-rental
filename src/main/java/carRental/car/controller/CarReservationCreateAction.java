@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import carRental.car.model.CarResponseDto;
+
 /**
  * Servlet implementation class ReservationCreateAction
  */
@@ -25,8 +27,21 @@ public class CarReservationCreateAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String carId = request.getParameter("carId");
+		String brand = request.getParameter("brand");
+		String name = request.getParameter("name");
+		String type = request.getParameter("type");
+		String fuelType = request.getParameter("fuelType");
+		int year = Integer.parseInt(request.getParameter("year"));
+		int fee = Integer.parseInt(request.getParameter("fee"));
+		int mileage = Integer.parseInt(request.getParameter("mileage"));
+		String imgUrl = request.getParameter("imgUrl");
+
+		CarResponseDto car = new CarResponseDto(carId, brand, name, type, fuelType, year, imgUrl, fee, mileage);
+
+		request.setAttribute("car", car);
+
+		request.getRequestDispatcher("/reservationCreate").forward(request, response);
 	}
 
 	/**
