@@ -127,13 +127,21 @@
 <!-- Servlet 맵핑 -->
   <servlet>
     <servlet-name>LoginAction</servlet-name>
-    <servlet-class>carRental.car.controller.CarListAction</servlet-class>
+    <servlet-class>carRental.user.controller.LoginAction</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginAction</servlet-name>
     <url-pattern>/LoginAction</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>LogoutAction</servlet-name>
+    <servlet-class>carRental.user.controller.LogoutAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutAction</servlet-name>
+    <url-pattern>/LogoutAction</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>CarListAction</servlet-name>
