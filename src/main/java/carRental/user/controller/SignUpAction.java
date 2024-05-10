@@ -17,7 +17,6 @@ import carRental.user.model.UserResponseDto;
 /**
  * Servlet implementation class SignUpAction
  */
-@WebServlet("/signUpAction")
 public class SignUpAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

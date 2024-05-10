@@ -16,7 +16,6 @@ import carRental.util.PasswordCrypto;
 /**
  * Servlet implementation class UserDeleteAction
  */
-@WebServlet("/UserDeleteAction")
 public class UserDeleteAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

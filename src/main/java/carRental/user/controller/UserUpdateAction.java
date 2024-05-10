@@ -15,7 +15,6 @@ import carRental.user.model.UserResponseDto;
 /**
  * Servlet implementation class UserUpdateAction
  */
-@WebServlet("/UserUpdateAction")
 public class UserUpdateAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
