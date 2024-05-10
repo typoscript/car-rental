@@ -184,7 +184,7 @@
     <servlet-class>carRental.car.controller.CarReservationCreateAction</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CarReservationCreate</servlet-name>
+    <servlet-name>CarReservationCreateAction</servlet-name>
     <url-pattern>/carReservationCreate</url-pattern>
   </servlet-mapping>
 </web-app>
