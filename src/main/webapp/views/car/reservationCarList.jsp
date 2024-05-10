@@ -1,3 +1,5 @@
+<%@page import="carRental.car.model.CarResponseDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,8 +17,28 @@
 	</c:if>
 
 	<div class="root">
+		<% List<CarResponseDto> cars = (List<CarResponseDto>) request.getAttribute("cars"); %>
+		
+		<%
+		for (CarResponseDto car : cars)	{ %>
+			<div class="card-car">
+				<img src=<%= car.getImgUrl() %>>
+				
+				<div>
+					<p><%= car.getBrand() %></p>
+					<p><%= car.getName() %></p>
+					<p><%= car.getType() %></p>
+					<p><%= car.getFuelType() %></p>
+					<p><%= car.getYear() %></p>
+					<p><%= car.getFee() %></p>
+					<p><%= car.getMileage() %></p>
+				</div>
+				<button class="btn btn-primary" onclick="location.href='/reservation?carId=<%=car.getId() %>'">예약</button>
+			</div>
+		<%
+		}
+		%>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
-<script src="/resources/script/car/reservationCarList.js"></script>
 </html>
