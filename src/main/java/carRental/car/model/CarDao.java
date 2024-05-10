@@ -21,16 +21,18 @@ public class CarDao {
 	}
 
 	public List<CarResponseDto> findCarAllByUserId(String userId) {
-		String sql = "SELECT id, brand, name, type, fuel_type, year, img_url, fee, mileage "
-				+ "FROM cars "
-				+ "WHERE id=?";
+		String sql = "SELECT cars.id, brand, name, type, fuel_type, year, img_url, fee, mileage " +
+		"FROM rental_reservations res " +
+		"JOIN cars ON res.car_id = cars.id " +
+		"WHERE res.user_id=?";
+		
 		List<CarResponseDto> cars = new ArrayList<>();
 
 		try {
 			conn = DBManager.getConnection();
-			pstmt.setString(1, userId);
-
 			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, userId);
 
 			rs = pstmt.executeQuery();
 			
@@ -46,7 +48,6 @@ public class CarDao {
 				int mileage = rs.getInt(9);
 				
 				CarResponseDto car = new CarResponseDto(id, brand, name, type, fuelType, year, imgUrl, fee, mileage);
-				
 				cars.add(car);
 			}
 		} catch (Exception e) {
