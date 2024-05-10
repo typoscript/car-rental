@@ -123,4 +123,14 @@
     <url-pattern>/reservation</url-pattern>
   </servlet-mapping>
 <!-- 예약 끝 -->
+
+<!-- Servlet 맵핑 -->
+  <servlet>
+    <servlet-name>CarList</servlet-name>
+    <servlet-class>carRental.car.controller.CarListAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarList</servlet-name>
+    <url-pattern>/carList</url-pattern>
+  </servlet-mapping>
 </web-app>
