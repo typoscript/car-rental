@@ -55,8 +55,22 @@ public class ReservationDao {
 
 	public boolean deleteReservation(ReservationRequestDto reservationDto) {
 		boolean isDeleted = true;
-		
 		String sql = "DELETE FROM rental_reservations WHERE id=?";
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, reservationDto.getId());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: deleteReservation");
+			isDeleted = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
 
 		return isDeleted;
 	}
