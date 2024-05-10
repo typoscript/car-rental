@@ -115,7 +115,7 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>reservationCreate</servlet-name>
+    <servlet-name>reservationCreatePage</servlet-name>
     <jsp-file>/views/car/reservationCreate.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
