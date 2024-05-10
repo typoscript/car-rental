@@ -206,4 +206,13 @@
     <url-pattern>/reservationDelete</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ReservationUpdateAction</servlet-name>
+    <servlet-class>carRental.reservation.controller.ReservationUpdateAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservationUpdateAction</servlet-name>
+    <url-pattern>/reservationUpdate</url-pattern>
+  </servlet-mapping>
+
 </web-app>
