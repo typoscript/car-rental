@@ -74,6 +74,14 @@
     <url-pattern>/userDelete</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>myReservation</servlet-name>
+    <jsp-file>/views/user/myReservation.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myReservation</servlet-name>
+    <url-pattern>/myReservationPage</url-pattern>
+  </servlet-mapping>
 <!-- 유저 끝 -->
 
 <!-- 게시판 끝 -->
