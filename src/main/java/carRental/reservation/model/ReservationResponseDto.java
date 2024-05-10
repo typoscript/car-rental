@@ -5,14 +5,14 @@ import java.time.LocalDate;
 
 public class ReservationResponseDto {
 	private int id;
-	private int userId;
+	private String userId;
 	private int carId;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private String status;
 	private Timestamp creationDate;
 
-	public ReservationResponseDto(int id, int userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
+	public ReservationResponseDto(int id, String userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
 		this.id = id;
 		this.userId = userId;
 		this.carId = carId;
@@ -30,11 +30,11 @@ public class ReservationResponseDto {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
