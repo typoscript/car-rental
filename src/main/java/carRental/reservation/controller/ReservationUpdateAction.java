@@ -49,6 +49,9 @@ public class ReservationUpdateAction extends HttpServlet {
 		int carId = Integer.parseInt(request.getParameter("carId"));
 		LocalDate startDate = LocalDate.parse(request.getParameter("rentalStartDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("rentalEndDate"));
+		
+		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
+		ReservationDao reservationDao = ReservationDao.getInstance();
 	}
 
 }
