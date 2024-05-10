@@ -75,6 +75,17 @@ public class ReservationDao {
 		return isDeleted;
 	}
 
+	public boolean updateReservation(ReservationRequestDto reservationDto) {
+		String sql = 
+			"UPDATE rental_reservations " +
+			"SET car_id=?, start_date=?, end_date=?" +
+			"WHERE id=?";
+
+		boolean isUpdated = true;
+				
+		return isUpdated;
+	}
+
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
 		String sql = "SELECT id, car_id, start_date, end_date, status, creation_date "
 			+ "FROM rental_reservations "
