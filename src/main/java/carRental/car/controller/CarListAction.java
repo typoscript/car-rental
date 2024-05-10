@@ -17,14 +17,13 @@ import carRental.car.model.CarResponseDto;
 /**
  * Servlet implementation class CarList
  */
-@WebServlet("/carList")
-public class CarList extends HttpServlet {
+public class CarListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CarList() {
+    public CarListAction() {
         super();
         // TODO Auto-generated constructor stub
     }
