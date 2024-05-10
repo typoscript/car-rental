@@ -187,4 +187,14 @@
     <servlet-name>ReservationCreateAction</servlet-name>
     <url-pattern>/reservationCreate</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ReservationViewAction</servlet-name>
+    <servlet-class>carRental.reservation.controller.ReservationViewAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservationViewAction</servlet-name>
+    <url-pattern>/reservationView</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
