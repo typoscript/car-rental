@@ -83,6 +83,24 @@ public class ReservationDao {
 
 		boolean isUpdated = true;
 				
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, reservationDto.getCarId());
+			pstmt.setDate(2, Date.valueOf(reservationDto.getStartDate()));
+			pstmt.setDate(3, Date.valueOf(reservationDto.getEndDate()));
+			pstmt.setInt(4, reservationDto.getId());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: ReservationDao -> updateReservation()");
+			isUpdated = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
 		return isUpdated;
 	}
 
