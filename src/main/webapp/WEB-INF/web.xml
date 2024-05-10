@@ -152,6 +152,15 @@
     <url-pattern>/SignUpAction</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>UserDeleteAction</servlet-name>
+    <servlet-class>carRental.user.controller.UserDeleteAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserDeleteAction</servlet-name>
+    <url-pattern>/UserDeleteAction</url-pattern>
+  </servlet-mapping>
+
 
   <servlet>
     <servlet-name>CarListAction</servlet-name>
