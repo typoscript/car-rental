@@ -34,7 +34,7 @@ public class ReservationCreateAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String carId = request.getParameter("carId");
+		int carId = Integer.parseInt(request.getParameter("carId"));
 		String brand = request.getParameter("brand");
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
