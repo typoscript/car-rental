@@ -251,4 +251,13 @@
     <url-pattern>/postDelete</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PostUpdateAction</servlet-name>
+    <servlet-class>carRental.board.controller.PostUpdateAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostUpdateAction</servlet-name>
+    <url-pattern>/postUpdate</url-pattern>
+  </servlet-mapping>
+
 </web-app>
