@@ -194,7 +194,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ReservationViewAction</servlet-name>
-    <url-pattern>/reservationView</url-pattern>
+    <url-pattern>/myReservation</url-pattern>
   </servlet-mapping>
   
 </web-app>
