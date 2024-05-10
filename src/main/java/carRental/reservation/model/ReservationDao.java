@@ -53,7 +53,7 @@ public class ReservationDao {
 		return isCreated;
 	}
 
-	public boolean deleteReservation(ReservationRequestDto reservationDto) {
+	public boolean deleteReservationByReservationId(ReservationRequestDto reservationDto) {
 		boolean isDeleted = true;
 		String sql = "DELETE FROM rental_reservations WHERE id=?";
 
