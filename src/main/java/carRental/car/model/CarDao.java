@@ -32,7 +32,7 @@ public class CarDao {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				String id = rs.getString(1);
+				int id = rs.getInt(1);
 				String brand = rs.getString(2);
 				String name = rs.getString(3);
 				String type = rs.getString(4);
