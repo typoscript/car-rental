@@ -6,13 +6,13 @@ import java.time.LocalDate;
 public class Reservation {
 	private int id;
 	private String userId;
-	private String carId;
+	private int carId;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private String status;
 	private Timestamp creationDate;
 
-	public Reservation(int id, String userId, String carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
+	public Reservation(int id, String userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
 		this.id = id;
 		this.userId = userId;
 		this.carId = carId;
@@ -30,7 +30,7 @@ public class Reservation {
 		return userId;
 	}
 
-	public String getCarId() {
+	public int getCarId() {
 		return carId;
 	}
 
