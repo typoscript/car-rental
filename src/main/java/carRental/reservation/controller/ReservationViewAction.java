@@ -41,6 +41,11 @@ public class ReservationViewAction extends HttpServlet {
 
 		List<ReservationResponseDto> reservations = reservationDao.findReservationAllByUserId(user.getId());
 		List<CarResponseDto> cars = carDao.findCarByUserId(user.getId());
+		
+		request.setAttribute("reservations", reservations);
+		request.setAttribute("cars", cars);
+		
+		request.getRequestDispatcher("/myReservationPage").forward(request, response);
 	}
 
 	/**
