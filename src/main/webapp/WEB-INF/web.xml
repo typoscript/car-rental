@@ -144,6 +144,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>SignUpAction</servlet-name>
+    <servlet-class>carRental.user.controller.SignUpAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUpAction</servlet-name>
+    <url-pattern>/SignUpAction</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
     <servlet-name>CarListAction</servlet-name>
     <servlet-class>carRental.car.controller.CarListAction</servlet-class>
   </servlet>
