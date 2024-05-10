@@ -31,6 +31,7 @@
 		</div>
 		
 		<form class="form" method="POST" action="/reservationCreate">
+			<input type="hidden" name="carId" value="<%= car.getId()%>">
 			<div>
 				<p>렌트 시작일</p>
 				<input type="date" name="rentalStartDate">
