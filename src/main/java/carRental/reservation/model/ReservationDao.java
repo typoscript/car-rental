@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Date;
 
 import carRental.util.DBManager;
@@ -48,5 +50,16 @@ public class ReservationDao {
 		}
 
 		return isCreated;
+	}
+
+	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
+		String sql = "SELECT res.id, user_id, car_id, start_date, end_date "
+			+ "FROM rental_reservations as res "
+			+ "JOIN cars ON cars.id = res.car_id "
+			+ "WHERE user_id=? AND status=?";
+
+		List<ReservationResponseDto> reservations = new ArrayList<>();
+		
+		return null;
 	}
 }
