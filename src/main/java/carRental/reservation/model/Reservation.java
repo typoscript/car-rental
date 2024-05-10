@@ -21,4 +21,32 @@ public class Reservation {
 		this.status = status;
 		this.creationDate = creationDate;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public int getCarId() {
+		return carId;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public Timestamp getCreationDate() {
+		return creationDate;
+	}
 }
