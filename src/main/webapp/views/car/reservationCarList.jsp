@@ -34,7 +34,7 @@
 					<p><%= car.getMileage() %></p>
 				</div>
 				<button class="btn btn-primary" 
-				onclick="location.href='/carReservationCreate?carId=<%= car.getId()%>&brand=<%= car.getBrand()%>&name=<%= car.getName()%>&type=<%= car.getType()%>&fuelType=<%= car.getFuelType()%>&year=<%= car.getYear()%>&fee=<%= car.getFee()%>&mileage=<%= car.getMileage()%>&imgUrl=<%= car.getImgUrl()%>'">예약</button>
+				onclick="location.href='/reeservationCreate?carId=<%= car.getId()%>&brand=<%= car.getBrand()%>&name=<%= car.getName()%>&type=<%= car.getType()%>&fuelType=<%= car.getFuelType()%>&year=<%= car.getYear()%>&fee=<%= car.getFee()%>&mileage=<%= car.getMileage()%>&imgUrl=<%= car.getImgUrl()%>'">예약</button>
 			</div>
 		<%
 		}
