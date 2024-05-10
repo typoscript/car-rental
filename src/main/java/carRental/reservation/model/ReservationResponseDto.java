@@ -11,4 +11,16 @@ public class ReservationResponseDto {
 	private LocalDate endDate;
 	private String status;
 	private Timestamp creationDate;
+
+	public ReservationResponseDto(int id, int userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
+		this.id = id;
+		this.userId = userId;
+		this.carId = carId;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.status = status;
+		this.creationDate = creationDate;
+	}
+	
+	
 }
