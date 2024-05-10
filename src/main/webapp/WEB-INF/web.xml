@@ -167,7 +167,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UserUpdateAction</servlet-name>
-    <url-pattern>/UserUpdateAction</url-pattern>
+    <url-pattern>/userUpdateAction</url-pattern>
   </servlet-mapping>
 
   <servlet>
