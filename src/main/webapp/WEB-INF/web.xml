@@ -242,4 +242,13 @@
     <url-pattern>/postCreate</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PostDeleteAction</servlet-name>
+    <servlet-class>carRental.board.controller.PostDeleteAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostDeleteAction</servlet-name>
+    <url-pattern>/postDelete</url-pattern>
+  </servlet-mapping>
+
 </web-app>
