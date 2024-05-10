@@ -22,11 +22,12 @@ public class ReservationRequestDto {
 		this.creationDate = creationDate;
 	}
 
-	public ReservationRequestDto(String userId, int carId, LocalDate startDate, LocalDate endDate) {
+	public ReservationRequestDto(String userId, int carId, LocalDate startDate, LocalDate endDate, String status) {
 		this.userId = userId;
 		this.carId = carId;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.status = status;
 	}
 
 	public int getId() {
