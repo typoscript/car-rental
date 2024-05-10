@@ -60,6 +60,20 @@ public class ReservationDao {
 
 		List<ReservationResponseDto> reservations = new ArrayList<>();
 		
-		return null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, Reservation.Status.reserved);
+			
+			rs = pstmt.executeQuery();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findReservationsAllByUserId");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return reservations;
 	}
 }
