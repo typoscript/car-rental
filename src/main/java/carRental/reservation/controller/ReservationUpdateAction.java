@@ -44,6 +44,11 @@ public class ReservationUpdateAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		int carId = Integer.parseInt(request.getParameter("carId"));
+		LocalDate startDate = LocalDate.parse(request.getParameter("rentalStartDate"));
+		LocalDate endDate = LocalDate.parse(request.getParameter("rentalEndDate"));
 	}
 
 }
