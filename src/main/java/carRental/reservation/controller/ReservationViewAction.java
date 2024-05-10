@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import carRental.car.model.CarDao;
+import carRental.car.model.CarResponseDto;
 import carRental.reservation.model.ReservationDao;
 import carRental.reservation.model.ReservationResponseDto;
 import carRental.user.model.UserResponseDto;
@@ -33,14 +35,9 @@ public class ReservationViewAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReservationDao reservationDao = ReservationDao.getInstance();
+		CarDao carDao = CarDao.getInstance();
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
-
-		List<ReservationResponseDto> reservations = reservationDao.findReservationAllByUserId(user.getId());
-		
-		request.setAttribute("reservations", reservations);
-
-		request.getRequestDispatcher("/myReservationPage").forward(request, response);
 	}
 
 	/**
