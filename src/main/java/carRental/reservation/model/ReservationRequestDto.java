@@ -11,6 +11,8 @@ public class ReservationRequestDto {
 	private LocalDate endDate;
 	private String status;
 	private Timestamp creationDate;
+	
+	public ReservationRequestDto() { }
 
 	public ReservationRequestDto(int id, String userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
 		this.id = id;
