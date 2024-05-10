@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		
-		<form class="form" method="POST" action="/carReservationCreate">
+		<form class="form" method="POST" action="/reservationCreate">
 			<div>
 				<p>렌트 시작일</p>
 				<input type="date" name="rental-start-date">
