@@ -131,7 +131,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginAction</servlet-name>
-    <url-pattern>/LoginAction</url-pattern>
+    <url-pattern>/loginAction</url-pattern>
   </servlet-mapping>
 
   <servlet>
