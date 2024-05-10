@@ -18,5 +18,5 @@
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
-<script src="/resources/script/car/reservation.js"></script>
+<script src="/resources/script/car/reservationCarList.js"></script>
 </html>
