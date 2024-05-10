@@ -32,7 +32,7 @@ public class ReservationDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, reservationDto.getUserId());
-			pstmt.setString(2, reservationDto.getCarId());
+			pstmt.setInt(2, reservationDto.getCarId());
 
 			pstmt.setDate(3, Date.valueOf(reservationDto.getStartDate()));
 			pstmt.setDate(4, Date.valueOf(reservationDto.getEndDate()));
