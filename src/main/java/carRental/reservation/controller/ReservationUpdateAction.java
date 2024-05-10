@@ -52,6 +52,13 @@ public class ReservationUpdateAction extends HttpServlet {
 		
 		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
+				
+		if (reservationDao.updateReservation(reservationDto)) {
+			response.sendRedirect("/myPage");
+			return;
+		}
+
+		response.sendRedirect("/");
 	}
 
 }
