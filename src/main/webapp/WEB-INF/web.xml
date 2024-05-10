@@ -122,6 +122,15 @@
     <servlet-name>reservationCreatePage</servlet-name>
     <url-pattern>/reservationCreatePage</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>reservationUpdatePage</servlet-name>
+    <jsp-file>/views/reservation/reservationUpdate.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reservationUpdatePage</servlet-name>
+    <url-pattern>/reservationUpdatePage</url-pattern>
+  </servlet-mapping>
 <!-- 예약 끝 -->
 
 <!-- Servlet 맵핑 -->
