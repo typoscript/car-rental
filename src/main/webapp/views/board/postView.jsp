@@ -39,7 +39,7 @@
 				<span>${post.getModificationDate()}</span>
 			</div>		
 			<div>
-				<button class="btn btn-primary" onclick="location.href='/postUpdate?id=${post.getId()}'">수정</button>
+				<button class="btn btn-primary" onclick="location.href='/postUpdate?id=${post.getId()}&title=${post.getTitle()}&content=${post.getContent()}&isNotice=${post.isNotice()}&creationDate=${post.getCreationDate()}&modificationDate=${post.getModificationDate()}'">수정</button>
 				<form method="POST" action="/postDelete?id=${post.getId()}">
 					<input type="submit" class="btn btn-danger" value="삭제">
 				</form>
