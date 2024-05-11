@@ -15,7 +15,7 @@
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
 
-	<div>
+	<div class="root">
 		<h1>${user.getName()}님의 마이페이지</h1>
 		<button class="btn btn-primary" onclick="location.href='/myReservation'">나의 예약</button>
 		<button class="btn btn-primary" onclick="location.href='/userUpdate'">회원정보 수정</button>
