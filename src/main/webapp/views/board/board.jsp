@@ -20,7 +20,7 @@
 
 		<div>
 		<c:forEach var="post" items="${posts}" >
-			<div class="post-container" onclick="location.href='/postView?${post.getId()}'">
+			<div class="post-container" onclick="location.href='/postView?id=${post.getId()}'">
 				<div>
 					<span>ID</span>
 					<span>${post.getId()}</span>
