@@ -15,23 +15,42 @@
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
 	<div>
-		<% CarResponseDto car = (CarResponseDto) request.getAttribute("car"); %>
-
 		<div class="card-car">
-			<img src=<%= car.getImgUrl() %>>
+			<img src="${car.getImgUrl()}">
 			<div>
-				<p><%= car.getBrand() %></p>
-				<p><%= car.getName() %></p>
-				<p><%= car.getType() %></p>
-				<p><%= car.getFuelType() %></p>
-				<p><%= car.getYear() %></p>
-				<p><%= car.getFee() %></p>
-				<p><%= car.getMileage() %></p>
+				<div>
+					<span>브랜드</span>
+					<span>${car.getBrand()}</span>
+				</div>
+				<div>
+					<span>이름</span>
+					<span>${car.getName()}</span>
+				</div>
+				<div>
+					<span>차종</span>
+					<span>${car.getType()}</span>
+				</div>
+				<div>
+					<span>연료 종류</span>
+					<span>${car.getFuelType()}</span>
+				</div>
+				<div>
+					<span>연식</span>
+					<span>${car.getYear()}</span>
+				</div>
+				<div>
+					<span>주행거리</span>
+					<span>${car.getMileage()}</span>
+				</div>
+				<div>
+					<span>1일 렌트비</span>
+					<span>${car.getFee()}</span>
+				</div>
 			</div>
 		</div>
 		
 		<form class="form" method="POST" action="/reservationCreate">
-			<input type="hidden" name="carId" value="<%= car.getId()%>">
+			<input type="hidden" name="carId" value="${car.getId()}">
 			<div>
 				<p>렌트 시작일</p>
 				<input type="date" name="rentalStartDate">
