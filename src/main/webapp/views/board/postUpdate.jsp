@@ -14,6 +14,18 @@
 	</c:if>
 	
 	<div class="root">
+		<form method="POST" action="/postUpdate">
+			<input type="hidden" name="id" value="${post.getId()}">
+			<div>
+				<p>제목</p>
+				<input type="text" name="title" value="${post.getTitle()}">
+			</div>
+			<div>
+				<p>내용</p>
+				<textarea name="content">${post.getContent()}</textarea>
+			</div>
+			<input type="submit" class="btn btn-success" value="수정" >
+		</form>
 	</div>
 
 	<c:import url="/footer"></c:import>
