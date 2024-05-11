@@ -145,6 +145,26 @@ public class PostDao {
 			"SET title=? AND content=? AND is_notice=? " +
 			"WHERE id=? AND user_id=?";
 
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, postDto.getTitle());
+			pstmt.setString(2, postDto.getContent());
+			pstmt.setBoolean(3, postDto.isNotice());
+
+			pstmt.setInt(4, postDto.getId());
+			pstmt.setString(5, postDto.getUserId());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: updatePost");
+			isUpdated = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
 		return isUpdated;
 	}
 }
