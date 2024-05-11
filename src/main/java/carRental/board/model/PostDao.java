@@ -49,8 +49,8 @@ public class PostDao {
 	}
 
 	public List<PostResponseDto> findPostAll() {
-		String sql = "SELECT user_id, title, content, is_notice, creation_date, modification_date FROM board";
-		List<PostResponseDto> cars = new ArrayList<>();
+		String sql = "SELECT id, user_id, title, content, is_notice, creation_date, modification_date FROM board";
+		List<PostResponseDto> posts = new ArrayList<>();
 
 		try {
 			conn = DBManager.getConnection();
@@ -60,24 +60,25 @@ public class PostDao {
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				String userId = rs.getString(1);
-				String title = rs.getString(2);
-				String content = rs.getString(3);
-				boolean isNotice = rs.getBoolean(4);
-				Timestamp creationDate = rs.getTimestamp(5);
-				Timestamp modificationDate = rs.getTimestamp(6);
+				int id = rs.getInt(1);
+				String userId = rs.getString(2);
+				String title = rs.getString(3);
+				String content = rs.getString(4);
+				boolean isNotice = rs.getBoolean(5);
+				Timestamp creationDate = rs.getTimestamp(6);
+				Timestamp modificationDate = rs.getTimestamp(7);
 				
-				PostResponseDto car = new PostResponseDto(userId, title, content, isNotice, creationDate, modificationDate);
+				PostResponseDto post = new PostResponseDto(id, userId, title, content, isNotice, creationDate, modificationDate);
 				
-				cars.add(car);
+				posts.add(post);
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("Error: findCarAll");
+			System.out.println("Error: findPostAll");
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
 		
-		return cars;
+		return posts;
 	}
 }
