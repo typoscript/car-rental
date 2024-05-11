@@ -13,21 +13,23 @@
 	<c:if test="${not empty user}">
 		<c:redirect url="/myPage"></c:redirect>
 	</c:if>
-
-	<div id="login-container">
-		<form id="form-login" method="POST" action="/loginAction">
-			<div>
-				<p>아이디</p>
-				<input type="text" name="id" >
-			</div>
-			<div>
-				<p>비밀번호</p>
-				<input type="password" name="password" >
-			</div>
-			<input type="submit" class="btn btn-success" value="로그인" >
-		</form>
-		<p id="sign-up"><a href="/signUp">회원가입</a></p>
-	</div>
+	
+	<div class="root">
+		<div id="login-container">
+			<form id="form-login" method="POST" action="/loginAction">
+				<div>
+					<p>아이디</p>
+					<input type="text" name="id" >
+				</div>
+				<div>
+					<p>비밀번호</p>
+					<input type="password" name="password" >
+				</div>
+				<input type="submit" class="btn btn-success" value="로그인" >
+			</form>
+			<p id="sign-up"><a href="/signUp">회원가입</a></p>
+		</div>
+		</div>
 	<c:import url="/footer"></c:import>
 </body>
 <script src="/resources/script/user/login-validation.js"></script>
