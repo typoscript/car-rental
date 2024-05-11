@@ -137,4 +137,10 @@ public class PostDao {
 
 		return isDeleted;
 	}
+
+	public boolean updatePost(PostRequestDto postDto) {
+		boolean isUpdated = true;
+
+		return isUpdated;
+	}
 }
