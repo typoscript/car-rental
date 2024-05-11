@@ -1,7 +1,8 @@
-.root > .card-car {
+.card-car {
 	display: flex;
 	flex-direction: row;
 	padding: 10px;
+	background-color: #ffffff;
 }
 
 .card-car > img {
