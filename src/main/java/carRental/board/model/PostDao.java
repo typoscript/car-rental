@@ -48,6 +48,38 @@ public class PostDao {
 		return isCreated;
 	}
 
+	public PostResponseDto findPostById(int id) {
+		String sql = "SELECT user_id, title, content, is_notice, creation_date, modification_date " +
+				"FROM board WHERE id=?";
+		PostResponseDto post = null;
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				String userId = rs.getString(1);
+				String title = rs.getString(2);
+				String content = rs.getString(3);
+				boolean isNotice = rs.getBoolean(4);
+				Timestamp creationDate = rs.getTimestamp(5);
+				Timestamp modificationDate = rs.getTimestamp(6);
+				
+				post = new PostResponseDto(id, userId, title, content, isNotice, creationDate, modificationDate);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findPostById");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return post;
+	}
+
 	public List<PostResponseDto> findPostAll() {
 		String sql = "SELECT id, user_id, title, content, is_notice, creation_date, modification_date FROM board";
 		List<PostResponseDto> posts = new ArrayList<>();
