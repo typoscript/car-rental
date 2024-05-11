@@ -58,5 +58,7 @@ public class PostUpdateAction extends HttpServlet {
 		postDto.setTitle(title);
 		postDto.setContent(content);
 		postDto.setNotice(isNotice);
+		
+		postDao.updatePost(postDto);
 	}
 }
