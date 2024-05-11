@@ -61,6 +61,7 @@ input[type="password"] {
 	padding: 20px;
 	background-color: #e7f4e8;
 	border-radius: 10px;
+	min-height: 500px;
 }
 
 .btn {
