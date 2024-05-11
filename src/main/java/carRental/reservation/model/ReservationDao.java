@@ -104,6 +104,34 @@ public class ReservationDao {
 		return isUpdated;
 	}
 
+	public boolean updateReservationStatus(ReservationRequestDto reservationDto) {
+		String sql = 
+			"UPDATE rental_reservations " +
+			"SET status=? " +
+			"WHERE id=? and user_id=?";
+
+		boolean isUpdated = true;
+				
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, reservationDto.getStatus());
+			pstmt.setInt(2, reservationDto.getId());
+			pstmt.setString(3, reservationDto.getUserId());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: ReservationDao -> updateReservationStatus()");
+			isUpdated = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+		return isUpdated;
+	}
+
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
 		String sql = "SELECT id, car_id, start_date, end_date, status, creation_date "
 			+ "FROM rental_reservations "
