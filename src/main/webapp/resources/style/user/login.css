@@ -1,4 +1,4 @@
-#login-container {
+.login-container {
 	padding: 20px;
 	gap: 20px;
 	display: flex;
@@ -16,26 +16,26 @@
 	border-radius: 10px;
 }
 
-#login-container > #form-login > div {
+.login-container > #form-login > div {
 	display: flex;	
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 }
 
-#login-container input[type="submit"] {
+.login-container input[type="submit"] {
 	margin: 0 auto;
 }
 
-#login-container input[type="submit"]:hover {
+.login-container input[type="submit"]:hover {
 	background-color: #38b044;
 }
 
-#login-container > #form-login p {
+.login-container > #form-login p {
 	color: #5dd96a;
 }
 
-#login-container #sign-up > a {
+.login-container #sign-up > a {
 	font-size: 18px;
 	color: #6575b5;
 }
