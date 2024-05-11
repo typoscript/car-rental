@@ -1,5 +1,6 @@
 /**
-
+연초록
+	#e7f4e8;
 초록
 	#5dd96a;
 진 초록
@@ -56,6 +57,7 @@ input[type="password"] {
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
+	background-color: #e7f4e8;
 }
 
 .btn {
