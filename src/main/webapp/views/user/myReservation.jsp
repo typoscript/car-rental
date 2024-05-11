@@ -23,19 +23,49 @@
 			<div class="card-car">
 				<img src="${cars[i].getImgUrl()}">
 				<div>
-					<p>${cars[i].getBrand()}</p>
-					<p>${cars[i].getName()}</p>
-					<p>${cars[i].getType()}</p>
-					<p>${cars[i].getFuelType()}</p>
-					<p>${cars[i].getYear()}</p>
-					<p>${cars[i].getFee()}</p>
-					<p>${cars[i].getMileage()}</p>
+					<div>
+						<span>브랜드</span>
+						<span>${cars[i].getBrand()}</span>
+					</div>
+					<div>
+						<span>이름</span>
+						<span>${cars[i].getName()}</span>
+					</div>
+					<div>
+						<span>차종</span>
+						<span>${cars[i].getType()}</span>
+					</div>
+					<div>
+						<span>연료 종류</span>
+						<span>${cars[i].getFuelType()}</span>
+					</div>
+					<div>
+						<span>연식</span>
+						<span>${cars[i].getYear()}년형</span>
+					</div>
+					<div>
+						<span>주행거리</span>
+						<span>${cars[i].getMileage()}km</span>
+					</div>
+					<div>
+						<span>1일 렌트비</span>
+						<span>${cars[i].getFee()}원</span>
+					</div>
 				</div>
 			</div>
 			<div>
-				<p>${reservations[i].getStartDate()}</p>
-				<p>${reservations[i].getEndDate()}</p>
-				<p>예약 상태: ${reservations[i].getStatus()}</p>
+				<div>
+					<span>렌트 시작일</span>
+					<span>${reservations[i].getStartDate()}</span>
+				</div>
+				<div>
+					<span>렌트 종료일</span>
+					<span>${reservations[i].getEndDate()}</span>
+				</div>
+				<div>
+					<span>예약 상태</span>
+					<span>${reservations[i].getStatus()}</span>
+				</div>
 			</div>
 			<div>
 				<c:if test="${reservations[i].getStatus() eq '예약'}">
