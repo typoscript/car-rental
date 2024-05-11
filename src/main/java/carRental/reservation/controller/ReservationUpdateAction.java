@@ -46,7 +46,6 @@ public class ReservationUpdateAction extends HttpServlet {
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		int carId = Integer.parseInt(request.getParameter("carId"));
 		String status = request.getParameter("status");
 		
 		if (status != null) {
@@ -54,6 +53,7 @@ public class ReservationUpdateAction extends HttpServlet {
 			return;
 		}
 
+		int carId = Integer.parseInt(request.getParameter("carId"));
 		LocalDate startDate = LocalDate.parse(request.getParameter("rentalStartDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("rentalEndDate"));
 		
@@ -72,7 +72,7 @@ public class ReservationUpdateAction extends HttpServlet {
 		ReservationRequestDto reservationDto = new ReservationRequestDto(id, userId, status);
 		ReservationDao reservationDao = ReservationDao.getInstance();
 				
-		if (reservationDao.updateReservation(reservationDto)) {
+		if (reservationDao.updateReservationStatus(reservationDto)) {
 			response.sendRedirect("/myPage");
 			return;
 		}
