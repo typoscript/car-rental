@@ -60,5 +60,7 @@ public class PostUpdateAction extends HttpServlet {
 		postDto.setNotice(isNotice);
 		
 		postDao.updatePost(postDto);
+		
+		response.sendRedirect("/postView?id=" + id);
 	}
 }
