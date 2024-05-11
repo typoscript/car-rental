@@ -43,6 +43,12 @@ public class PostDeleteAction extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		PostDao postDao = PostDao.getInstance();
+		PostRequestDto postDto = new PostRequestDto();
+
+		postDto.setId(id);
+		postDto.setUserId(user.getId());
 	}
 
 }
