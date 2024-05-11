@@ -117,6 +117,8 @@ public class PostDao {
 	public boolean deletePost(PostRequestDto postDto) {
 		boolean isDeleted = true;
 
+		String sql = "DELETE FROM board WHERE id=? AND user_id=?";
+
 		return isDeleted;
 	}
 }
