@@ -53,11 +53,11 @@
 			<input type="hidden" name="carId" value="${car.getId()}">
 			<div>
 				<p>렌트 시작일</p>
-				<input type="date" name="rentalStartDate">
+				<input type="date" name="startDate">
 			</div>
 			<div>
 				<p>렌트 종료일</p>
-				<input type="date" name="rentalEndDate">
+				<input type="date" name="endDate">
 			</div>
 			<div>
 				<p>지불금액</p>
