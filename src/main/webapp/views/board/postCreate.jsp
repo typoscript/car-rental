@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="root">
-		<form method="POST" action="/PostCreateAction">
+		<form method="POST" action="/postCreate">
 			<div>
 				<p>제목</p>
 				<input type="text" name="title">
