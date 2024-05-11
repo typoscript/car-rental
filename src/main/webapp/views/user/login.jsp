@@ -16,7 +16,7 @@
 	
 	<div class="root">
 		<div class="login-container">
-			<form id="form-login" method="POST" action="/loginAction">
+			<form class="form-login" method="POST" action="/loginAction">
 				<div>
 					<p>아이디</p>
 					<input type="text" name="id" >
