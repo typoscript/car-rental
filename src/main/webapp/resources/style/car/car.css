@@ -25,3 +25,8 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.card-car .card-car-detail-container button {
+	width: 100px;
+	height: 50px;
+}
