@@ -13,10 +13,34 @@
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
 	
-	<div>
-		<button class="btn btn-primary" onclick="location.href='/postCreate'">글쓰기</button>
+	<div class="root">
+		<div>
+			<button class="btn btn-primary" onclick="location.href='/postCreate'">글쓰기</button>
+		</div>
+
+		<div>
+		<c:forEach var="post" items="${posts}" >
+			<div class="post-container" onclick="location.href='/postView?${post.getId()}'">
+				<div>
+					<span>ID</span>
+					<span>${post.getId()}</span>
+				</div>		
+				<div>
+					<span>제목</span>
+					<span>${post.getTitle()}</span>
+				</div>		
+				<div>
+					<span>글쓴이</span>
+					<span>${post.getUserId()}</span>
+				</div>		
+				<div>
+					<span>게시 날짜</span>
+					<span>${post.getCreationDate()}</span>
+				</div>		
+			</div>		
+		</c:forEach>
+		</div>	
 	</div>
-	
 	<c:import url="/footer"></c:import>
 </body>
 </html>
