@@ -49,6 +49,10 @@ public class PostDeleteAction extends HttpServlet {
 
 		postDto.setId(id);
 		postDto.setUserId(user.getId());
+		
+		postDao.deletePost(postDto);
+
+		response.sendRedirect("/board");
 	}
 
 }
