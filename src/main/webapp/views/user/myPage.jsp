@@ -17,10 +17,12 @@
 
 	<div class="root">
 		<h1>${user.getName()}님의 마이페이지</h1>
-		<button class="btn btn-primary" onclick="location.href='/myReservation'">나의 예약</button>
-		<button class="btn btn-primary" onclick="location.href='/userUpdate'">회원정보 수정</button>
-		<button class="btn btn-danger" onclick="location.href='/logoutAction'">로그아웃</button>
-		<button class="btn btn-danger" onclick="location.href='/userDelete'">회원탈퇴</button>
+		<div>
+			<button class="btn btn-primary" onclick="location.href='/myReservation'">나의 예약</button>
+			<button class="btn btn-primary" onclick="location.href='/userUpdate'">회원정보 수정</button>
+			<button class="btn btn-danger" onclick="location.href='/logoutAction'">로그아웃</button>
+			<button class="btn btn-danger" onclick="location.href='/userDelete'">회원탈퇴</button>
+		</div>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
