@@ -46,5 +46,8 @@ public class PostUpdateAction extends HttpServlet {
 		String isNoticeChecked = request.getParameter("isNotice");
 
 		boolean isNotice = isNoticeChecked == null ? false : true;
+		
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 	}
 }
