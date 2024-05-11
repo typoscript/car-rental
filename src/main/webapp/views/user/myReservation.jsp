@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,42 +18,35 @@
 	</c:if>
 
 	<div class="root">
-	<% List<ReservationResponseDto> reservations = (List<ReservationResponseDto>) request.getAttribute("reservations"); %>
-	<% List<CarResponseDto> cars = (List<CarResponseDto>) request.getAttribute("cars"); %>
-		
-	<%
-		for (int i = 0; i < reservations.size(); i++) {
-			ReservationResponseDto reservation = reservations.get(i);
-			CarResponseDto car = cars.get(i);
-	%>
-			<div class="card-reservation">
-				<div class="card-car">
-					<img src=<%= car.getImgUrl() %>>
-					<div>
-						<p><%= car.getBrand() %></p>
-						<p><%= car.getName() %></p>
-						<p><%= car.getType() %></p>
-						<p><%= car.getFuelType() %></p>
-						<p><%= car.getYear() %></p>
-						<p><%= car.getFee() %></p>
-						<p><%= car.getMileage() %></p>
-					</div>
-				</div>
+	<c:forEach var="i" begin="0" end="${fn:length(reservations)-1}" step="1">
+		<div class="card-reservation">
+			<div class="card-car">
+				<img src="${cars[i].getImgUrl()}">
 				<div>
-					<p><%= reservation.getStartDate() %></p>
-					<p><%= reservation.getEndDate() %></p>
-					<p><%= reservation.getStatus() %></p>
-				</div>
-				<div>
-					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=<%=reservation.getId()%>'">수정</button>
-					<form method="POST" action="/reservationUpdate?id=<%=reservation.getId()%>&status=취소">
-						<input type="submit" class="btn btn-danger" value="취소" >
-					</form>
+					<p>${cars[i].getBrand()}</p>
+					<p>${cars[i].getName()}</p>
+					<p>${cars[i].getType()}</p>
+					<p>${cars[i].getFuelType()}</p>
+					<p>${cars[i].getYear()}</p>
+					<p>${cars[i].getFee()}</p>
+					<p>${cars[i].getMileage()}</p>
 				</div>
 			</div>
-	<%
-		}
-	%>
+			<div>
+				<p>${reservations[i].getStartDate()}</p>
+				<p>${reservations[i].getEndDate()}</p>
+				<p>예약 상태: ${reservations[i].getStatus()}</p>
+			</div>
+			<div>
+				<c:if test="${reservations[i].getStatus() eq '예약'}">
+					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=${reservations[i].getId()}'">수정</button>
+					<form method="POST" action="/reservationUpdate?id=${reservations[i].getId()}&status=취소">
+						<input type="submit" class="btn btn-danger" value="취소" >
+					</form>
+				</c:if>
+			</div>
+		</div>
+	</c:forEach>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
