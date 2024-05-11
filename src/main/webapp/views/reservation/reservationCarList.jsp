@@ -18,41 +18,41 @@
 	</c:if>
 
 	<div class="root">
-		<c:forEach var="i" begin="0" end="${fn:length(cars)-1}" step="1">
+		<c:forEach var="car" items="${cars}" >
 			<div class="card-car">
-				<img src="${cars[i].getImgUrl()}">
+				<img src="${car.getImgUrl()}">
 				<div>
 					<div>
 						<span>브랜드</span>
-						<span>${cars[i].getBrand()}</span>
+						<span>${car.getBrand()}</span>
 					</div>
 					<div>
 						<span>이름</span>
-						<span>${cars[i].getName()}</span>
+						<span>${car.getName()}</span>
 					</div>
 					<div>
 						<span>차종</span>
-						<span>${cars[i].getType()}</span>
+						<span>${car.getType()}</span>
 					</div>
 					<div>
 						<span>연료 종류</span>
-						<span>${cars[i].getFuelType()}</span>
+						<span>${car.getFuelType()}</span>
 					</div>
 					<div>
 						<span>연식</span>
-						<span>${cars[i].getYear()}년형</span>
+						<span>${car.getYear()}년형</span>
 					</div>
 					<div>
 						<span>주행거리</span>
-						<span>${cars[i].getMileage()}km</span>
+						<span>${car.getMileage()}km</span>
 					</div>
 					<div>
 						<span>1일 렌트비</span>
-						<span>${cars[i].getFee()}원</span>
+						<span>${car.getFee()}원</span>
 					</div>
 				</div>
 				<button class="btn btn-primary" 
-				onclick="location.href='/reservationCreate?carId=${cars[i].getId()}&brand=${cars[i].getBrand()}&name=${cars[i].getName()}&type=${cars[i].getType()}&fuelType=${cars[i].getFuelType()}&year=${cars[i].getYear()}&fee=${cars[i].getFee()}&mileage=${cars[i].getMileage()}&imgUrl=${cars[i].getImgUrl()}'">예약</button>
+				onclick="location.href='/reservationCreate?carId=${car.getId()}&brand=${car.getBrand()}&name=${car.getName()}&type=${car.getType()}&fuelType=${car.getFuelType()}&year=${car.getYear()}&fee=${car.getFee()}&mileage=${car.getMileage()}&imgUrl=${car.getImgUrl()}'">예약</button>
 			</div>
 		</c:forEach>
 	</div>
