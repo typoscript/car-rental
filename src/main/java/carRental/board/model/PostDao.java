@@ -141,6 +141,10 @@ public class PostDao {
 	public boolean updatePost(PostRequestDto postDto) {
 		boolean isUpdated = true;
 
+		String sql = "UPDATE board " + 
+			"SET title=? AND content=? AND is_notice=? " +
+			"WHERE id=? AND user_id=?";
+
 		return isUpdated;
 	}
 }
