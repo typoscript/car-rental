@@ -39,6 +39,8 @@ public class PostUpdateAction extends HttpServlet {
 		String content = request.getParameter("content");
 		boolean isNotice = Boolean.parseBoolean(request.getParameter("isNotice"));
 		
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 	}
 
 	/**
