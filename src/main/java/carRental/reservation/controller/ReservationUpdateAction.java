@@ -54,6 +54,11 @@ public class ReservationUpdateAction extends HttpServlet {
 
 		ReservationResponseDto reservation = new ReservationResponseDto(id, user.getId(), carId, startDate, endDate);
 		CarResponseDto car = new CarResponseDto(carId, brand, name, type, fuelType, year, imgUrl, fee, mileage);
+
+		request.setAttribute("reservation", reservation);
+		request.setAttribute("car", car);
+
+		request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
 	}
 
 	/**
