@@ -113,4 +113,10 @@ public class PostDao {
 		
 		return posts;
 	}
+
+	public boolean deletePost(PostRequestDto postDto) {
+		boolean isDeleted = true;
+
+		return isDeleted;
+	}
 }
