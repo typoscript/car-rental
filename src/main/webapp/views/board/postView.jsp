@@ -40,7 +40,7 @@
 			</div>		
 			<div>
 				<button class="btn btn-primary" onclick="location.href='/postUpdate?id=${post.getId()}'">수정</button>
-				<form method="POST" action="/postDelete?id=${post.getId()}'">
+				<form method="POST" action="/postDelete?id=${post.getId()}">
 					<input type="submit" class="btn btn-danger" value="삭제">
 				</form>
 			</div>
