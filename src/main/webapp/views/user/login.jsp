@@ -15,7 +15,7 @@
 	</c:if>
 	
 	<div class="root">
-		<div id="login-container">
+		<div class="login-container">
 			<form id="form-login" method="POST" action="/loginAction">
 				<div>
 					<p>아이디</p>
