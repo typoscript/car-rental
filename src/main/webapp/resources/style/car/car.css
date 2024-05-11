@@ -12,14 +12,14 @@
 	height: 200px;	
 }
 
-.card-car > .card-car-detail-container {
+.card-car .card-car-detail-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	gap: 10px;
 }
 
-.card-car > .card-car-detail-container > div {
+.card-car .card-car-detail-container > div {
 	display: flex;
 	justify-content: space-between;
 }
