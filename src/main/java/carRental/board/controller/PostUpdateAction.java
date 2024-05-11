@@ -1,6 +1,8 @@
 package carRental.board.controller;
 
 import java.io.IOException;
+import java.security.Timestamp;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import carRental.board.model.PostDao;
 import carRental.board.model.PostRequestDto;
+import carRental.board.model.PostResponseDto;
 import carRental.user.model.UserResponseDto;
 
 /**
@@ -31,7 +34,11 @@ public class PostUpdateAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("/board");
+		int id = Integer.parseInt(request.getParameter("id"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		boolean isNotice = Boolean.parseBoolean(request.getParameter("isNotice"));
+		
 	}
 
 	/**
