@@ -17,3 +17,8 @@
 	flex-direction: column;
 	justify-content: center;
 }
+
+.card-car > .card-car-detail-container > div {
+	display: flex;
+	justify-content: space-between;
+}
