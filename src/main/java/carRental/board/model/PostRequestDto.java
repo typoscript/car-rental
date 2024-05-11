@@ -3,6 +3,7 @@ package carRental.board.model;
 import java.sql.Timestamp;
 
 public class PostRequestDto {
+	private int id;
 	private String userId;
 	private String title;
 	private String content;
