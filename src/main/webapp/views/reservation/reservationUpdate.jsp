@@ -9,18 +9,50 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
-	<% int id = (Integer) request.getAttribute("id"); %>
 	<div class="root">
 		<form class="form" method="POST" action="/reservationUpdate">
-			<input type="hidden" name="id" value="<%=id %>">
-			<input type="hidden" name="carId" value="1">
+			<div class="card-car">
+				<img src="${car.getImgUrl()}">
+				<div>
+					<div>
+						<span>브랜드</span>
+						<span>${car.getBrand()}</span>
+					</div>
+					<div>
+						<span>이름</span>
+						<span>${car.getName()}</span>
+					</div>
+					<div>
+						<span>차종</span>
+						<span>${car.getType()}</span>
+					</div>
+					<div>
+						<span>연료 종류</span>
+						<span>${car.getFuelType()}</span>
+					</div>
+					<div>
+						<span>연식</span>
+						<span>${car.getYear()}년형</span>
+					</div>
+					<div>
+						<span>주행거리</span>
+						<span>${car.getMileage()}km</span>
+					</div>
+					<div>
+						<span>1일 렌트비</span>
+						<span>${car.getFee()}원</span>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" name="id" value="${reservation.getId()}">
+			<input type="hidden" name="carId" value="${car.getId()}">
 			<div>
 				<p>렌트 시작일</p>
-				<input type="date" name="rentalStartDate">
+				<input type="date" name="startDate" value="${reservation.getStartDate()}">
 			</div>
 			<div>
 				<p>렌트 종료일</p>
-				<input type="date" name="rentalEndDate">
+				<input type="date" name="endDate" value="${reservation.getEndDate()}">
 			</div>
 			<div>
 				<p>지불금액</p>
@@ -28,7 +60,7 @@
 				<p>입금액</p>
 				<input type="number" name="userPayAmount">
 			</div>
-			<input type="submit" class="btn btn-success" value="예약">
+			<input type="submit" class="btn btn-success" value="예약 수정">
 		</form>
 	</div>
 	<c:import url="/footer"></c:import>
