@@ -14,7 +14,7 @@
 	<c:if test="${empty user}">
 		<c:redirect url="/login"></c:redirect>
 	</c:if>
-	<div>
+	<div class="root">
 		<div class="card-car">
 			<img src="${car.getImgUrl()}">
 			<div>
