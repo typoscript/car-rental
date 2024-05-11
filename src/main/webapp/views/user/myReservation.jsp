@@ -22,7 +22,7 @@
 		<div class="card-reservation">
 			<div class="card-car">
 				<img src="${cars[i].getImgUrl()}">
-				<div>
+				<div class="card-car-detail-container">
 					<div>
 						<span>브랜드</span>
 						<span>${cars[i].getBrand()}</span>
