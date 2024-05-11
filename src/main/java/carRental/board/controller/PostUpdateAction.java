@@ -41,6 +41,10 @@ public class PostUpdateAction extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		PostResponseDto post = new PostResponseDto(id, user.getId(), title, content, isNotice);
+		
+		request.setAttribute("post", post);
 	}
 
 	/**
