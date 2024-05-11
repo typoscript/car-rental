@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import carRental.board.model.PostDao;
+import carRental.board.model.PostRequestDto;
+import carRental.user.model.UserResponseDto;
 
 /**
  * Servlet implementation class PostUpdateAction
@@ -34,8 +39,12 @@ public class PostUpdateAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
+		int id = Integer.parseInt(request.getParameter("id"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String isNoticeChecked = request.getParameter("isNotice");
 
+		boolean isNotice = isNoticeChecked == null ? false : true;
+	}
 }
