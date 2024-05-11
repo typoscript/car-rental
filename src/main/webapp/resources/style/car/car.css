@@ -3,6 +3,7 @@
 	flex-direction: row;
 	padding: 10px;
 	margin: 10px;
+	gap: 30px;
 	background-color: #edfff2;
 	border-radius: 10px;
 }
