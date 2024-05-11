@@ -135,7 +135,7 @@ public class ReservationDao {
 	public List<ReservationResponseDto> findReservationAllByUserId(String userId) {
 		String sql = "SELECT id, car_id, start_date, end_date, status, creation_date "
 			+ "FROM rental_reservations "
-			+ "WHERE user_id=? AND status=?";
+			+ "WHERE user_id=?";
 
 		List<ReservationResponseDto> reservations = new ArrayList<>();
 		
@@ -143,7 +143,6 @@ public class ReservationDao {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
-			pstmt.setString(2, Reservation.Status.reserved);
 			
 			rs = pstmt.executeQuery();
 			
