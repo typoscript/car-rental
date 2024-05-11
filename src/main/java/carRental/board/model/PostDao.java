@@ -119,6 +119,22 @@ public class PostDao {
 
 		String sql = "DELETE FROM board WHERE id=? AND user_id=?";
 
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, postDto.getId());
+			pstmt.setString(1, postDto.getUserId());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: deletePost");
+			isDeleted = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
 		return isDeleted;
 	}
 }
