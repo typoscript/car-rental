@@ -124,7 +124,7 @@ public class PostDao {
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, postDto.getId());
-			pstmt.setString(1, postDto.getUserId());
+			pstmt.setString(2, postDto.getUserId());
 
 			pstmt.execute();
 		} catch (Exception e) {
