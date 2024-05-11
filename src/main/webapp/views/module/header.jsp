@@ -6,6 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/style/common/style.css"/>
 <link rel="stylesheet" href="/resources/style/common/header.css"/>
+<link rel="stylesheet" href="/resources/style/car/car.css"/>
 <body>
 	<header>
 		<h1><a href="/">렌터카</a></h1>
