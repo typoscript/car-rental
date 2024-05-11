@@ -45,6 +45,8 @@ public class PostUpdateAction extends HttpServlet {
 		PostResponseDto post = new PostResponseDto(id, user.getId(), title, content, isNotice);
 		
 		request.setAttribute("post", post);
+
+		request.getRequestDispatcher("/postUpdatePage").forward(request, response);
 	}
 
 	/**
