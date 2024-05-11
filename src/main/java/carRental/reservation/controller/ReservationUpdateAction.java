@@ -61,4 +61,15 @@ public class ReservationUpdateAction extends HttpServlet {
 		response.sendRedirect("/");
 	}
 
+	private void handleReservationStatusChange(HttpServletResponse response, int id, String userId, String status) {
+		ReservationRequestDto reservationDto = new ReservationRequestDto(id, userId, status);
+		ReservationDao reservationDao = ReservationDao.getInstance();
+				
+		if (reservationDao.updateReservation(reservationDto)) {
+			response.sendRedirect("/myPage");
+			return;
+		}
+
+		response.sendRedirect("/");
+	}
 }
