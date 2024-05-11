@@ -78,11 +78,11 @@ public class ReservationDao {
 	public boolean updateReservation(ReservationRequestDto reservationDto) {
 		String sql = 
 			"UPDATE rental_reservations " +
-			"SET car_id=?, start_date=?, end_date=?" +
-			"WHERE id=?";
+			"SET car_id=?, start_date=?, end_date=? " +
+			"WHERE id=? AND user_id=?";
 
 		boolean isUpdated = true;
-				
+		
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -91,6 +91,7 @@ public class ReservationDao {
 			pstmt.setDate(2, Date.valueOf(reservationDto.getStartDate()));
 			pstmt.setDate(3, Date.valueOf(reservationDto.getEndDate()));
 			pstmt.setInt(4, reservationDto.getId());
+			pstmt.setString(5, reservationDto.getUserId());
 
 			pstmt.execute();
 		} catch (Exception e) {
