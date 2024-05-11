@@ -142,7 +142,7 @@ public class PostDao {
 		boolean isUpdated = true;
 
 		String sql = "UPDATE board " + 
-			"SET title=? AND content=? AND is_notice=? " +
+			"SET title=? AND content=?, is_notice=? " +
 			"WHERE id=? AND user_id=?";
 
 		try {
