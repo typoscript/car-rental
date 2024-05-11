@@ -69,7 +69,7 @@
 			</div>
 			<div>
 				<c:if test="${reservations[i].getStatus() eq '예약'}">
-					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=${reservations[i].getId()}&carId=${cars[i].getId()}'">수정</button>
+					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=${reservations[i].getId()}&startDate=${reservations[i].getStartDate()}&endDate=${reservations[i].getEndDate()}&carId=${cars[i].getId()}&brand=${cars[i].getBrand()}&name=${cars[i].getName()}&type=${cars[i].getType()}&fuelType=${cars[i].getFuelType()}&year=${cars[i].getYear()}&fee=${cars[i].getFee()}&mileage=${cars[i].getMileage()}&imgUrl=${cars[i].getImgUrl()}'">수정</button>
 					<form method="POST" action="/reservationUpdate?id=${reservations[i].getId()}&status=취소">
 						<input type="submit" class="btn btn-danger" value="취소" >
 					</form>
