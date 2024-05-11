@@ -49,5 +49,14 @@ public class PostUpdateAction extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+		
+		PostDao postDao = PostDao.getInstance();
+		PostRequestDto postDto = new PostRequestDto();
+		
+		postDto.setId(id);
+		postDto.setUserId(user.getId());
+		postDto.setTitle(title);
+		postDto.setContent(content);
+		postDto.setNotice(isNotice);
 	}
 }
