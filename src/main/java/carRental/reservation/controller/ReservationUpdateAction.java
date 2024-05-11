@@ -68,7 +68,7 @@ public class ReservationUpdateAction extends HttpServlet {
 		response.sendRedirect("/");
 	}
 
-	private void handleReservationStatusChange(HttpServletResponse response, int id, String userId, String status) {
+	private void handleReservationStatusChange(HttpServletResponse response, int id, String userId, String status) throws ServletException, IOException {
 		ReservationRequestDto reservationDto = new ReservationRequestDto(id, userId, status);
 		ReservationDao reservationDao = ReservationDao.getInstance();
 				
