@@ -40,15 +40,15 @@
 					</div>
 					<div>
 						<span>연식</span>
-						<span>${cars[i].getYear()}</span>
+						<span>${cars[i].getYear()}년형</span>
 					</div>
 					<div>
 						<span>주행거리</span>
-						<span>${cars[i].getMileage()}</span>
+						<span>${cars[i].getMileage()}km</span>
 					</div>
 					<div>
 						<span>1일 렌트비</span>
-						<span>${cars[i].getFee()}</span>
+						<span>${cars[i].getFee()}원</span>
 					</div>
 				</div>
 				<button class="btn btn-primary" 
