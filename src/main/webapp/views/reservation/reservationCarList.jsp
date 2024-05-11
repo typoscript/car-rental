@@ -21,7 +21,7 @@
 			<div class="card-car">
 				<img src="${car.getImgUrl()}">
 				<div>
-					<div>
+					<div class="card-car-detail-container">
 						<span>브랜드</span>
 						<span>${car.getBrand()}</span>
 					</div>
