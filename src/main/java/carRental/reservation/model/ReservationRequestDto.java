@@ -14,6 +14,12 @@ public class ReservationRequestDto {
 	
 	public ReservationRequestDto() { }
 
+	public ReservationRequestDto(int id, String userId, String status) {
+		this.id = id;
+		this.userId = userId;
+		this.status = status;
+	}
+
 	public ReservationRequestDto(int id, String userId, int carId, LocalDate startDate, LocalDate endDate, String status, Timestamp creationDate) {
 		this.id = id;
 		this.userId = userId;
@@ -40,7 +46,6 @@ public class ReservationRequestDto {
 		this.endDate = endDate;
 		this.status = status;
 	}
-
 
 	public int getId() {
 		return id;
