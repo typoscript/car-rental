@@ -3,6 +3,7 @@ package carRental.board.model;
 import java.sql.Timestamp;
 
 public class PostResponseDto {
+	private int id;
 	private String userId;
 	private String title;
 	private String content;
@@ -10,8 +11,9 @@ public class PostResponseDto {
 	private Timestamp creationDate;
 	private Timestamp modificationDate;
 	
-	public PostResponseDto(String userId, String title, String content, boolean isNotice, Timestamp creationDate,
+	public PostResponseDto(int id, String userId, String title, String content, boolean isNotice, Timestamp creationDate,
 			Timestamp modificationDate) {
+		this.id = id;
 		this.userId = userId;
 		this.title = title;
 		this.content = content;
@@ -20,6 +22,12 @@ public class PostResponseDto {
 		this.modificationDate = modificationDate;
 	}
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUserId() {
 		return userId;
 	}
