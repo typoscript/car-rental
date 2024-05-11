@@ -44,7 +44,10 @@
 					<p><%= reservation.getStatus() %></p>
 				</div>
 				<div>
-					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=<%=reservation.getId()%>'">예약 수정</button>
+					<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=<%=reservation.getId()%>'">수정</button>
+					<form method="POST" action="/reservationUpdate?id=<%=reservation.getId()%>&status=취소">
+						<input type="submit" class="btn btn-danger" >
+					</form>
 				</div>
 			</div>
 	<%
