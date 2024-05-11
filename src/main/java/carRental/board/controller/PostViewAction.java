@@ -28,7 +28,7 @@ public class PostViewAction extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		request.setAttribute("id", id);
 
-		request.getRequestDispatcher("/postViewePage").forward(request, response);
+		request.getRequestDispatcher("/postViewPage").forward(request, response);
 	}
 
 	/**
