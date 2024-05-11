@@ -62,8 +62,8 @@ public class ReservationCreateAction extends HttpServlet {
 		
 		int carId = Integer.parseInt(request.getParameter("carId"));
 
-		LocalDate startDate = LocalDate.parse(request.getParameter("rentalStartDate"));
-		LocalDate endDate = LocalDate.parse(request.getParameter("rentalEndDate"));
+		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
+		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
 		
 		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
