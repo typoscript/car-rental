@@ -9,10 +9,6 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
-	<c:if test="${empty user}">
-		<c:redirect url="/login"></c:redirect>
-	</c:if>
-	
 	<div class="root">
 		<form method="POST" action="/postUpdate">
 			<input type="hidden" name="id" value="${post.getId()}">
