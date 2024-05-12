@@ -16,9 +16,7 @@
 				<p>아이디</p>
 				<input type="text" name="id" id="id" >
 				<p class="err err-hidden err-msg-id">아이디가 5자리 이상 20자리 이하여야합니다.</p>
-				<c:if test="${isDuplId}">
-					<p class="err err-msg-id-duplication">이미 존재하는 아이디입니다.</p>
-				</c:if>
+				<p class="err ${isDuplId ? '' : 'err-hidden'} err-msg-id-duplication">이미 존재하는 아이디입니다.</p>
 			</div>
 			<div>
 				<p>비밀번호</p>
@@ -39,9 +37,7 @@
 				<p>전화번호</p>
 				<input type="text" name="phone" id="phone" >
 				<p class="err err-hidden err-msg-phone">올바른 전화번호 입력 (예: 010-1234-1234).</p>
-				<c:if test="${isDuplPhone}">
-					<p class="err err-msg-phone-duplication">이미 존재하는 전화번호입니다.</p>
-				</c:if>
+				<p class="err ${isDuplPhone ? '' : 'err-hidden'} err-msg-phone-duplication">이미 존재하는 전화번호입니다.</p>
 			</div>
 			<div>
 				<p>관리자입니까?</p>
