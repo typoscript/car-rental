@@ -63,6 +63,11 @@ public class PostCreateAction extends HttpServlet {
 		PostDao postDao = PostDao.getInstance();
 		PostRequestDto postDto = new PostRequestDto();
 		
+		if (!user.isAdmin()) {
+			request.getRequestDispatcher("/postCreatePage").forward(request, response);
+			return;
+		}
+		
 		postDto.setUserId(user.getId());
 		postDto.setTitle(title);
 		postDto.setContent(content);
