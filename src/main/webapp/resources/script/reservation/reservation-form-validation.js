@@ -17,6 +17,13 @@ $("#endDate").change(() => {
 	setPriceInputValue();
 });
 
+function getTotalPrice(startDate, endDate) {
+	const diffTime = Math.abs(endDate, startDate);
+	const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+	const pricePerDay = $("#pricePerDay").val();
+	
+	return diffDays * pricePerDay;
+}
 
 function isValidInput() {
 	const startDate = $("#startDate").val();
