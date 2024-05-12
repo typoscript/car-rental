@@ -40,7 +40,6 @@ public class UserUpdateAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); 
 
 		String password = request.getParameter("password");
-		String name = request.getParameter("name");
 		String newPassword = request.getParameter("newPassword");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
@@ -51,7 +50,8 @@ public class UserUpdateAction extends HttpServlet {
 		UserRequestDto userDto = new UserRequestDto();
 
 		if (userDao.findUserByIdAndPassword(user.getId(), password) == null) {
-			response.sendRedirect("/userUpdate");
+			request.setAttribute("isInvalidPassword", true);
+			request.getRequestDispatcher("/userUpdatePage").forward(request, response);
 			return;
 		}
 		
