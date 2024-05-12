@@ -19,7 +19,7 @@
 				<img src="https://www.hyundai.com/contents/comparison/carimg_1129.png">
 				<img src="https://www.hyundai.com/contents/comparison/carimg_1267.png">
 			</div>
-			<button onclick="location.href='/carList'">렌트 바로가기</button>
+			<button class="btn btn-primary" onclick="location.href='/carList'">렌트 바로가기</button>
 		</div>
 	</div>
 	<c:import url="/footer"></c:import>
