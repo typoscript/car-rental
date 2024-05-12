@@ -1,0 +1,18 @@
+.card-reservation {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+.card-reservation > .card-car {
+	margin: 0;
+}
+
+.card-reservation > .card-reservation-action-container {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
