@@ -16,6 +16,12 @@
 	border-radius: 10px;
 }
 
+.login-container > .form-login > div {
+	display: flex;	
+	flex-direction: column;
+	gap: 30px;
+}
+
 .login-container > .form-login > div > div {
 	display: flex;	
 	flex-direction: row;
