@@ -69,6 +69,11 @@ public class ReservationCreateAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
 		String carIdStr = request.getParameter("carId");
 		String payAmount = request.getParameter("payAmount");
 		String startDateStr = request.getParameter("startDate");
@@ -100,10 +105,20 @@ public class ReservationCreateAction extends HttpServlet {
 			isValid = false;
 			request.setAttribute("isInvalidReservationDateRange", true);
 		}
-		
+
 		int carId = Integer.parseInt(carIdStr);
-		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
-		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
+
+		if (!isValid) {
+			CarDao carDao = CarDao.getInstance();
+			CarResponseDto car = carDao.findCarById(carId);
+
+			request.setAttribute("car", car);
+			request.getRequestDispatcher("/reservationCreatePage").forward(request, response);
+			return;
+		}
+
+		LocalDate startDate = LocalDate.parse(startDateStr);
+		LocalDate endDate = LocalDate.parse(endDateStr);
 		
 		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
