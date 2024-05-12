@@ -47,10 +47,16 @@ public class LoginAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 
+
+		HttpSession session = request.getSession();
+		
+		if ((UserResponseDto)session.getAttribute("user") != null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		
-		HttpSession session = request.getSession();
 
 		boolean isValid = true;
 		UserDao userDao = UserDao.getInstance();
