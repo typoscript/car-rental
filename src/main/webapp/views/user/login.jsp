@@ -10,10 +10,6 @@
 	<link rel="stylesheet" href="/resources/style/user/login.css"/>
 </head>
 <body>
-	<c:if test="${not empty user}">
-		<c:redirect url="/myPage"></c:redirect>
-	</c:if>
-	
 	<div class="root">
 		<div class="login-container">
 			<form class="form-login" method="POST" action="/login">
