@@ -33,7 +33,7 @@ function setPriceInputValue() {
 function getTotalPrice(startDate, endDate) {
 	const diffTime = (new Date(endDate)).getTime() - (new Date(startDate)).getTime(); 
 	const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
-	const pricePerDay = parseInt($("#pricePerDay").val());
+	const pricePerDay = parseInt($("#feePerDay").val());
 	
 	return diffDays * pricePerDay;
 }
