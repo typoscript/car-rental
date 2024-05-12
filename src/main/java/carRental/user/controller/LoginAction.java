@@ -55,7 +55,7 @@ public class LoginAction extends HttpServlet {
 
 		if (!isValid || user == null) {
 			request.setAttribute("hasError", true);
-			request.setAttribute("isValidLogin", isValid);
+			request.setAttribute("isValidLogin", false);
 			request.getRequestDispatcher("/loginPage").forward(request, response);
 			return;
 		}
