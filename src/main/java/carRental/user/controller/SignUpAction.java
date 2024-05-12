@@ -70,8 +70,20 @@ public class SignUpAction extends HttpServlet {
 		}
 		
 		UserRequestDto userDto = new UserRequestDto(id, password, name, address, phone, isAdmin, regDate);
-		
 		UserDao userDao = UserDao.getInstance();
+		
+		if (userDao.isDuplId(id)) {
+			request.setAttribute("isDuplId", true);
+			request.getRequestDispatcher("/signUp").forward(request, response);
+			return;
+		}
+
+		if (userDao.isDuplPhone(id)) {
+			request.setAttribute("isDuplPhone", true);
+			request.getRequestDispatcher("/signUp").forward(request, response);
+			return;
+		}
+
 		UserResponseDto user = userDao.createUser(userDto);
 		
 		if (user == null) {
