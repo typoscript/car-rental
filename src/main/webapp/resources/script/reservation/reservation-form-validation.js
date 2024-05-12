@@ -23,16 +23,17 @@ function setPriceInputValue() {
 	
 	let price = 0;
 	
-	if (isValidDateRange(startDate, endDate))
+	if (isValidDateRange(startDate, endDate)) {
 		price = getTotalPrice(startDate, endDate);
+	}
 
 	$("#price").val(price);
 }
 
 function getTotalPrice(startDate, endDate) {
-	const diffTime = Math.abs(endDate, startDate);
-	const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
-	const pricePerDay = $("#pricePerDay").val();
+	const diffTime = (new Date(endDate)).getTime() - (new Date(startDate)).getTime(); 
+	const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+	const pricePerDay = parseInt($("#pricePerDay").val());
 	
 	return diffDays * pricePerDay;
 }
