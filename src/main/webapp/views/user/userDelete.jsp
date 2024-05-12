@@ -14,6 +14,9 @@
 			<div>
 				<p>기존 비밀번호</p>
 				<input type="password" name="password" >
+				<c:if test="${isInvalidPassword}">
+					<p class="err err-msg-password-invalid">비밀번호가 틀립니다.</p>
+				</c:if>
 			</div>
 			<input type="submit" class="btn btn-danger" value="회원탈퇴" >
 		</form>
