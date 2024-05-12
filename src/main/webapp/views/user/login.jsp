@@ -27,11 +27,7 @@
 					</div>
 					<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 				</div>
-				<c:if test="${hasError}">
-					<c:if test="${!isValidLogin}">
-						<p class="err err-msg-login">아이디 혹은 비밀번호가 틀리거나 없는 계정입니다.</p>
-					</c:if>
-				</c:if>
+				<p class="err ${isInValidLogin ? '' : 'err-hidden' } err-msg-login">아이디 혹은 비밀번호가 틀리거나 없는 계정입니다.</p>
 				<input type="submit" class="btn btn-success" value="로그인" >
 			</form>
 			<p id="sign-up"><a href="/signUp">회원가입</a></p>
