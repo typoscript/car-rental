@@ -21,6 +21,13 @@
 				<textarea name="content" id="content"></textarea>
 				<p class="err err-hidden err-msg-content">내용이 비어있습니다.</p>
 			</div>
+
+			<c:if test="${user.isAdmin()}">
+			<div>
+				<p>공지사항입니까?</p>
+				<input type="checkbox" name="isNotice" id="isNotice">
+			</div>
+			</c:if>
 			<input type="submit" class="btn btn-success" value="업로드" >
 		</form>
 	</div>
