@@ -19,11 +19,11 @@
 			<form class="form-login" method="POST" action="/login">
 				<div>
 					<p>아이디</p>
-					<input type="text" name="id" >
+					<input type="text" name="id" id="id" >
 				</div>
 				<div>
 					<p>비밀번호</p>
-					<input type="password" name="password" >
+					<input type="password" name="password" id="password" >
 				</div>
 				<c:if test="${hasError}">
 					<c:if test="${!isValidLogin}">
