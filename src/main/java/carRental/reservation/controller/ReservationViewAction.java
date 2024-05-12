@@ -34,10 +34,16 @@ public class ReservationViewAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReservationDao reservationDao = ReservationDao.getInstance();
-		CarDao carDao = CarDao.getInstance();
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		
+		if (user == null) {
+			response.sendRedirect("/signUp");
+			return;
+		}
+
+		ReservationDao reservationDao = ReservationDao.getInstance();
+		CarDao carDao = CarDao.getInstance();
 
 		List<ReservationResponseDto> reservations = reservationDao.findReservationAllByUserId(user.getId());
 		List<CarResponseDto> cars = carDao.findCarAllByUserId(user.getId());
