@@ -89,6 +89,9 @@ input[type="password"] {
 }
 
 .err {
-	display: none;
 	color: tomato;
+}
+
+.err-hidden {
+	display: none;
 }
