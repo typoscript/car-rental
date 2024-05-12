@@ -40,7 +40,7 @@
 			</div>		
 			<div>
 				<button class="btn btn-primary" onclick="location.href='/postUpdate?id=${post.getId()}&title=${post.getTitle()}&content=${post.getContent()}&isNotice=${post.isNotice()}&creationDate=${post.getCreationDate()}&modificationDate=${post.getModificationDate()}'">수정</button>
-				<button class="btn btn-danger" onclick="location.href='/postDelete?id=${post.getId()}'">수정</button>
+				<button class="btn btn-danger" onclick="location.href='/postDelete?id=${post.getId()}'">삭제</button>
 			</div>
 		</div>
 		
