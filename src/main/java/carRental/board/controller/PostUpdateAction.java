@@ -34,14 +34,19 @@ public class PostUpdateAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		boolean isNotice = Boolean.parseBoolean(request.getParameter("isNotice"));
 		
-		HttpSession session = request.getSession();
-		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
-
 		PostResponseDto post = new PostResponseDto(id, user.getId(), title, content, isNotice);
 		
 		request.setAttribute("post", post);
