@@ -197,6 +197,6 @@ public class ReservationDao {
 			DBManager.close(conn, pstmt, rs);
 		}
 		
-		return reservationCountInDateRange > 0;
+		return reservationCountInDateRange == 0;
 	}
 }
