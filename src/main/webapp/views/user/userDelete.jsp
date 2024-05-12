@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="root">
-		<form class="form" method="POST" action="/userDeleteAction">
+		<form class="form" method="POST" action="/userDelete">
 			<div>
 				<p>기존 비밀번호</p>
 				<input type="password" name="password" >
