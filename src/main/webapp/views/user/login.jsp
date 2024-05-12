@@ -18,13 +18,17 @@
 		<div class="login-container">
 			<form class="form-login" method="POST" action="/login">
 				<div>
-					<p>아이디</p>
-					<input type="text" name="id" id="id" >
+					<div>
+						<p>아이디</p>
+						<input type="text" name="id" id="id" >
+					</div>
 					<p class="err err-hidden err-msg-id">아이디가 5자리 이상 20자리 이하여야합니다.</p>
 				</div>
 				<div>
-					<p>비밀번호</p>
-					<input type="password" name="password" id="password" >
+					<div>
+						<p>비밀번호</p>
+						<input type="password" name="password" id="password" >
+					</div>
 					<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 				</div>
 				<c:if test="${hasError}">

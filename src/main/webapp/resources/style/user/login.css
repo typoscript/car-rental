@@ -16,11 +16,15 @@
 	border-radius: 10px;
 }
 
-.login-container > .form-login > div {
+.login-container > .form-login > div > div {
 	display: flex;	
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.login-container > .form-login > div > div p {
+	color: #5dd96a;
 }
 
 .login-container input[type="submit"] {
@@ -29,10 +33,6 @@
 
 .login-container input[type="submit"]:hover {
 	background-color: #38b044;
-}
-
-.login-container > .form-login > div p {
-	color: #5dd96a;
 }
 
 .login-container #sign-up > a {
