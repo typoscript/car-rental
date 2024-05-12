@@ -43,7 +43,7 @@
 				<input type="text" name="phone" id="phone">
 				<p class="err err-hidden err-msg-phone">올바른 전화번오 입력 (예: 010-1234-1234).</p>
 				<c:if test="${isDuplPhone}">
-					<p class="err err-msg-phone-dupl">이미 사용중인 전화번호입니다.</p>
+					<p class="err err-msg-phone-dupl">중복 전화번호입니다.</p>
 				</c:if>
 			</div>
 			<input type="submit" class="btn btn-success" value="회원정보 수정">
