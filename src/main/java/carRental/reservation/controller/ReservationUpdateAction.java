@@ -124,11 +124,13 @@ public class ReservationUpdateAction extends HttpServlet {
 		}
 
 		int carId = Integer.parseInt(carIdStr);
+		int days = endDateStr.compareTo(startDateStr) + 1;
+		int price = Integer.parseInt(feePerDay) * days;
+		request.setAttribute("price", price);
 
 		if (!isValid) {
 			CarDao carDao = CarDao.getInstance();
 			CarResponseDto car = carDao.findCarById(carId);
-
 			request.setAttribute("car", car);
 			request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
 			return;
@@ -142,11 +144,18 @@ public class ReservationUpdateAction extends HttpServlet {
 		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
 
-		int days = endDateStr.compareTo(startDateStr) + 1;
-
+		
 		if (Integer.parseInt(payAmount) < days * Integer.parseInt(feePerDay)) {
 			isValid = false;
 			request.setAttribute("isInvalidPayAmount", true);
+		}
+
+		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
+		ReservationDao reservationDao = ReservationDao.getInstance();
+
+		if (!reservationDao.isValidMyReservationDateRange(reservationDto)) {
+			isValid = false;
+			request.setAttribute("isInvalidReservationDateRange", true);
 		}
 
 		if (!isValid) {
@@ -157,9 +166,6 @@ public class ReservationUpdateAction extends HttpServlet {
 			request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
 			return;
 		}
-
-		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
-		ReservationDao reservationDao = ReservationDao.getInstance();
 
 				
 		if (reservationDao.updateReservation(reservationDto)) {
