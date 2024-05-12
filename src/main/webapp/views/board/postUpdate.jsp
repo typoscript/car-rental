@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>글 수정</title>
 	<c:import url="/header"></c:import>
-	<link rel="stylesheet" href="/resources/style/user/form.css">
+	<link rel="stylesheet" href="/resources/style/common/form.css">
 </head>
 <body>
 	<div class="root">
