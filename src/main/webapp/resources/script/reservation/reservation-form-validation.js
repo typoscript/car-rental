@@ -45,7 +45,7 @@ function isValidInput() {
 	const payAmount = $("#payAmount").val();
 	
 	let isValid = true;
-
+	
 	if (!startDate) {
 		isValid = false;
 		$(".err-msg-startDate-invalid").show();

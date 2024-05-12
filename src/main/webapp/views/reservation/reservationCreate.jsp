@@ -64,7 +64,7 @@
 				<input type="number" name="price" id="price" disabled>
 				<p>입금액</p>
 				<input type="number" name="payAmount" id="payAmount">
-				<p class="err err-hidden err-msg-payAmount-invalid"></p>
+				<p class="err err-hidden err-msg-payAmount-invalid">금액이 부족합니다</p>
 			</div>
 			<div>
 				<p class="err err-hidden err-msg-reservationDate-invalid">유효하지 않는 렌트 기간입니다.</p>
