@@ -65,4 +65,5 @@
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
+<script src="/resources/script/reservation/reservation-form-validation.js"></script>
 </html>
