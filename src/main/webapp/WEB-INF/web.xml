@@ -252,6 +252,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>NoticeViewAction</servlet-name>
+    <servlet-class>carRental.board.controller.NoticeViewAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoticeViewAction</servlet-name>
+    <url-pattern>/notice</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>PostCreateAction</servlet-name>
     <servlet-class>carRental.board.controller.PostCreateAction</servlet-class>
   </servlet>
