@@ -76,15 +76,69 @@ public class ReservationUpdateAction extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String status = request.getParameter("status");
+		String carIdStr = request.getParameter("carId");
+		String price = request.getParameter("price");
+		String payAmount = request.getParameter("payAmount");
+		String startDateStr = request.getParameter("startDate");
+		String endDateStr = request.getParameter("endDate");
+
+		boolean isValid = true;
+
+		if (carIdStr == null || carIdStr.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidCarId", true);
+		}
+
+		if (price == null || price.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
+		}
+
+		if (payAmount == null || payAmount.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
+		}
+
+		if (startDateStr == null || startDateStr.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidStartDate", true);
+		}
+		
+		if (endDateStr == null || endDateStr.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidEndDate", true);
+		}
+		
+		if (startDateStr.compareTo(endDateStr) > 0) {
+			isValid = false;
+			request.setAttribute("isInvalidReservationDateRange", true);
+		}
+
+		int carId = Integer.parseInt(carIdStr);
+
+		if (!isValid) {
+			CarDao carDao = CarDao.getInstance();
+			CarResponseDto car = carDao.findCarById(carId);
+
+			request.setAttribute("car", car);
+			request.getRequestDispatcher("/reservationCreatePage").forward(request, response);
+			return;
+		}
 		
 		if (status != null) {
 			handleReservationStatusChange(response, id, user.getId(), status);
 			return;
 		}
 		
-		int carId = Integer.parseInt(request.getParameter("carId"));
 		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
+
+		int days = endDateStr.compareTo(startDateStr) + 1;
+
+		if (Integer.parseInt(payAmount) < days * Integer.parseInt(price)) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
+		}
 
 		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
