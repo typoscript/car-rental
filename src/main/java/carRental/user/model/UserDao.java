@@ -229,7 +229,30 @@ public class UserDao {
 
 	private User findUserByPhone(String phone) {
 		User user = null;
-		String sql = "SELECT id, name, address, phone, is_admin, reg_date FROM users WHERE phone=?";
+		String sql = "SELECT id, name, address, is_admin, reg_date FROM users WHERE phone=?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, phone);
+			
+			rs = pstmt.executeQuery();
+		
+			if (rs.next()) {
+				String id = rs.getString(1);
+				String name = rs.getString(2);
+				String address = rs.getString(3);
+				boolean isAdmin = rs.getBoolean(4);
+				Timestamp regDate = rs.getTimestamp(5);
+				
+				user = new User(id, name, address, phone, isAdmin, regDate);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findUserById");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
 		
 		return user;
 	}
