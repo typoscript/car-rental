@@ -168,4 +168,35 @@ public class ReservationDao {
 		
 		return reservations;
 	}
+
+	public boolean isValidReservationDateRange(ReservationRequestDto reservationDto) {
+		String sql = "SELECT COUNT(*) " +
+			"FROM rental_reservations " +
+			"WHERE start_date BETWEEN ? AND ? " +
+			"OR end_date BETWEEN ? AND ?";
+
+		int reservationCountInDateRange = 0;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setDate(1, Date.valueOf(reservationDto.getStartDate()));
+			pstmt.setDate(2, Date.valueOf(reservationDto.getEndDate()));
+			pstmt.setDate(3, Date.valueOf(reservationDto.getStartDate()));
+			pstmt.setDate(4, Date.valueOf(reservationDto.getEndDate()));
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				reservationCountInDateRange = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findReservationsAllByUserId");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return reservationCountInDateRange > 0;
+	}
 }
