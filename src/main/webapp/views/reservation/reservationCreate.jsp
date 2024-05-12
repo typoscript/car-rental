@@ -51,16 +51,22 @@
 			<div>
 				<p>렌트 시작일</p>
 				<input type="date" name="startDate" id="startDate">
+				<p class="err err-hidden err-msg-startDate-invalid">유효하지 않는 날짜입니다</p>
 			</div>
 			<div>
 				<p>렌트 종료일</p>
 				<input type="date" name="endDate" id="endDate">
+				<p class="err err-hidden err-msg-endDate-invalid">유효하지 않는 날짜입니다</p>
 			</div>
 			<div>
 				<p>지불금액</p>
 				<input type="number" name="price" disabled id="price">
 				<p>입금액</p>
 				<input type="number" name="payAmount" id="payAmount">
+				<p class="err err-hidden err-msg-payAmount-invalid"></p>
+			</div>
+			<div>
+				<p class="err err-hidden err-msg-reservationDate-invalid">유효하지 않는 렌트 기간입니다.</p>
 			</div>
 			<input type="submit" class="btn btn-success" value="예약">
 		</form>
