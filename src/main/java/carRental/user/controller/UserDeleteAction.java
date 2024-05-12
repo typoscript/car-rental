@@ -68,7 +68,8 @@ public class UserDeleteAction extends HttpServlet {
 			return;
 		}
 
-		response.sendRedirect("/myPage");
+		request.setAttribute("isInvalidPassword", true);
+		request.getRequestDispatcher("/userDeletePage").forward(request, response);
 	}
 
 }
