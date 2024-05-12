@@ -227,6 +227,13 @@ public class UserDao {
 		return user;
 	}
 
+	private User findUserByPhone(String phone) {
+		User user = null;
+		String sql = "SELECT id, name, address, phone, is_admin, reg_date FROM users WHERE phone=?";
+		
+		return user;
+	}
+	
 	public boolean isDuplId(String id) {
 		return findUserById(id) != null;
 	}
