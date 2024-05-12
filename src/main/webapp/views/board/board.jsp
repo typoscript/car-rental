@@ -19,8 +19,8 @@
 			<button class="btn btn-primary" onclick="location.href='/postCreate'">글쓰기</button>
 		</div>
 
-		<div>
-		<c:forEach var="post" items="${posts}" >
+		<div class="board-post-container">
+			<c:forEach var="post" items="${posts}" >
 			<div class="post-container" onclick="location.href='/postView?id=${post.getId()}'">
 				<div>
 					<span>ID</span>
@@ -39,8 +39,8 @@
 					<span>${post.getCreationDate()}</span>
 				</div>		
 			</div>		
-		</c:forEach>
-		</div>	
+			</c:forEach>
+		</div>
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
