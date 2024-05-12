@@ -26,5 +26,5 @@
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
-<script src="/resources/script/board/post-create-validation.js"></script>
+<script src="/resources/script/board/post-validation.js"></script>
 </html>
