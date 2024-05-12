@@ -20,7 +20,9 @@
 				<p>기존 비밀번호</p>
 				<input type="password" name="password" id="currentPassword">
 				<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
-				<p class="err err-msg-password-invalid">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
+				<c:if test="${isInvalidPassword}">
+					<p class="err err-msg-password-invalid">비밀번호가 틀립니다.</p>
+				</c:if>
 			</div>
 			<div>
 				<p>새 비밀번호</p>
@@ -40,7 +42,9 @@
 				<p>전화번호</p>
 				<input type="text" name="phone" id="phone">
 				<p class="err err-hidden err-msg-phone">올바른 전화번오 입력 (예: 010-1234-1234).</p>
-				<p class="err err-msg-phone-dupl">이미 사용중인 전화번호입니다.</p>
+				<c:if test="${isDuplPhone}">
+					<p class="err err-msg-phone-dupl">이미 사용중인 전화번호입니다.</p>
+				</c:if>
 			</div>
 			<input type="submit" class="btn btn-success" value="회원정보 수정">
 		</form>	
