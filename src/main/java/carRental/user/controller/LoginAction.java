@@ -53,15 +53,10 @@ public class LoginAction extends HttpServlet {
 		else if (password == null || password.isEmpty())
 			isValid = false;	
 
-		if (!isValid) {
+		if (!isValid || user == null) {
+			request.setAttribute("hasError", true);
 			request.setAttribute("isValidLogin", isValid);
-			request.getRequestDispatcher("/login").forward(request, response);
-			return;
-		}
-
-		if (user == null) {
-			request.setAttribute("isValidLogin", false);
-			request.getRequestDispatcher("/login").forward(request, response);
+			request.getRequestDispatcher("/loginPage").forward(request, response);
 			return;
 		}
 
