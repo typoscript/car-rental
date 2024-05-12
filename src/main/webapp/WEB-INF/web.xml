@@ -91,7 +91,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>board</servlet-name>
-    <url-pattern>/board</url-pattern>
+    <url-pattern>/boardPage</url-pattern>
   </servlet-mapping>
 
   <servlet>
