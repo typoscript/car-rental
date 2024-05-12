@@ -74,13 +74,13 @@ public class SignUpAction extends HttpServlet {
 		
 		if (userDao.isDuplId(id)) {
 			request.setAttribute("isDuplId", true);
-			request.getRequestDispatcher("/signUp").forward(request, response);
+			request.getRequestDispatcher("/signUpPage").forward(request, response);
 			return;
 		}
 
 		if (userDao.isDuplPhone(phone)) {
 			request.setAttribute("isDuplPhone", true);
-			request.getRequestDispatcher("/signUp").forward(request, response);
+			request.getRequestDispatcher("/signUpPage").forward(request, response);
 			return;
 		}
 
