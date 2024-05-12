@@ -1,0 +1,8 @@
+.board-nav,
+.board-action-container {
+	width: 100%;
+}
+
+.board-action-container {
+	text-align: right;
+}
