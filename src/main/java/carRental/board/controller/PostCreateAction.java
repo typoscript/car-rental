@@ -54,11 +54,27 @@ public class PostCreateAction extends HttpServlet {
 			return;
 		}
 		
+		boolean isValid = true;
+		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String isNoticeChecked = request.getParameter("isNotice");
-
 		boolean isNotice = isNoticeChecked == null ? false : true;
+		
+		if (title == null || title.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidTitle", true);
+		}
+
+		if (content == null || content.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidContent", true);
+		}
+		
+		if (!isValid) {
+			request.getRequestDispatcher("/postCreatePage").forward(request, response);
+			return;
+		}
 		
 		PostDao postDao = PostDao.getInstance();
 		PostRequestDto postDto = new PostRequestDto();
