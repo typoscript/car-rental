@@ -11,6 +11,7 @@ $(document).ready(() => {
 
 function isValidInput() {
 	const password = $("#password").val();
+	const newPassword = $("#newPassword").val();
 	const address = $("#address").val();
 	const phone = $("#phone").val();
 		
@@ -21,6 +22,13 @@ function isValidInput() {
 		$(".err-msg-password").show();
 	} else {
 		$(".err-msg-password").hide();
+	}
+
+	if (!isValidPassword(newPassword)) {
+		isValid = false;
+		$(".err-msg-new-password").show();
+	} else {
+		$(".err-msg-new-password").hide();
 	}
 
 	if (!isValidAddress(address)) {
