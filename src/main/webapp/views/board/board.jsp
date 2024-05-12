@@ -20,6 +20,11 @@
 		</div>
 
 		<div class="board-post-container">
+			<c:if test="${empty posts}">
+				<div>
+					<h1>글이 없습니다</h1>
+				</div>
+			</c:if>
 			<c:forEach var="post" items="${posts}" >
 			<div class="post-container" onclick="location.href='/postView?id=${post.getId()}'">
 				<div>
