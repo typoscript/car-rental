@@ -75,6 +75,7 @@ public class ReservationCreateAction extends HttpServlet {
 		}
 		
 		String carIdStr = request.getParameter("carId");
+		String price = request.getParameter("price");
 		String payAmount = request.getParameter("payAmount");
 		String startDateStr = request.getParameter("startDate");
 		String endDateStr = request.getParameter("endDate");
@@ -84,6 +85,11 @@ public class ReservationCreateAction extends HttpServlet {
 		if (carIdStr == null || carIdStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidCarId", true);
+		}
+
+		if (price == null || price.isEmpty()) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
 		}
 
 		if (payAmount == null || payAmount.isEmpty()) {
@@ -119,6 +125,13 @@ public class ReservationCreateAction extends HttpServlet {
 
 		LocalDate startDate = LocalDate.parse(startDateStr);
 		LocalDate endDate = LocalDate.parse(endDateStr);
+		
+		int days = endDateStr.compareTo(startDateStr) + 1;
+
+		if (Integer.parseInt(payAmount) < days * Integer.parseInt(price)) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
+		}
 		
 		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
