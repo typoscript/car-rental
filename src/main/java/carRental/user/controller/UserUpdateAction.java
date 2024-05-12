@@ -47,14 +47,20 @@ public class UserUpdateAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 
 
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+
 		String password = request.getParameter("password");
 		String newPassword = request.getParameter("newPassword");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		
 		UserDao userDao = UserDao.getInstance();
-		HttpSession session = request.getSession();
-		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		UserRequestDto userDto = new UserRequestDto();
 		
 		boolean isValid = true;
