@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import carRental.user.model.UserRequestDto;
 import carRental.util.DBManager;
 
 public class PostDao {
@@ -112,6 +113,33 @@ public class PostDao {
 		}
 		
 		return posts;
+	}
+
+	public boolean deletePostByAdmin(PostRequestDto postDto, UserRequestDto userDto) {
+		boolean isDeleted = true;
+
+		String sql = "DELETE board " +
+			"FROM board" +
+			"JOIN users ON users.id = board.user_id" +
+			"WHERE board.id=? AND users.is_admin=?";
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, postDto.getId());
+			pstmt.setBoolean(2, userDto.isAdmin());
+
+			pstmt.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: deletePostByAdmin");
+			isDeleted = false;
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+
+		return isDeleted;
 	}
 
 	public boolean deletePost(PostRequestDto postDto) {
