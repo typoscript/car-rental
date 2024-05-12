@@ -38,7 +38,7 @@ public class ReservationViewAction extends HttpServlet {
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		
 		if (user == null) {
-			response.sendRedirect("/signUp");
+			response.sendRedirect("/login");
 			return;
 		}
 
