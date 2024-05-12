@@ -68,6 +68,11 @@ public class ReservationUpdateAction extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); 
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String status = request.getParameter("status");
