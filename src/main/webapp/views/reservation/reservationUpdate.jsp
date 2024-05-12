@@ -48,17 +48,25 @@
 			<input type="hidden" name="carId" value="${car.getId()}">
 			<div>
 				<p>렌트 시작일</p>
-				<input type="date" name="startDate" value="${reservation.getStartDate()}">
+				<input type="date" name="startDate" id="startDate" value="${reservation.getStartDate()}">
+				<p class="err ${isInvalidStartDate ? '' : 'err-hidden'} err-msg-startDate-invalid">유효하지 않는 날짜입니다.</p>
 			</div>
 			<div>
 				<p>렌트 종료일</p>
-				<input type="date" name="endDate" value="${reservation.getEndDate()}">
+				<input type="date" name="endDate" id="endDate" value="${reservation.getEndDate()}">
+				<p class="err ${isInvalidEndDate ? '' : 'err-hidden'} err-msg-endDate-invalid">유효하지 않는 날짜입니다.</p>
 			</div>
 			<div>
 				<p>지불금액</p>
-				<input type="number" name="payAmount" disabled>
+				<input type="hidden" id="pricePerDay" value="${car.getFee()}">
+				<input type="number" name="price" id="price" disabled>
 				<p>입금액</p>
-				<input type="number" name="userPayAmount">
+				<input type="number" name="payAmount" id="payAmount">
+				<p class="err ${isInvalidPayAmount ? '' : 'err-hidden'} err-msg-payAmount-invalid">금액이 부족합니다.</p>
+			</div>
+			<div>
+				<p class="err err-hidden err-msg-reservationDate-invalid">유효하지 않는 렌트 기간입니다.</p>
+				<p class="err ${isInvalidReservationDateRange ? '' : 'err-hidden'} err-msg-reservationDate-invalid">해당 렌트 기간에 렌트 예약이 존재합니다.</p>
 			</div>
 			<input type="submit" class="btn btn-success" value="예약 수정">
 		</form>
