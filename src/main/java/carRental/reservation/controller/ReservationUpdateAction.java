@@ -83,7 +83,7 @@ public class ReservationUpdateAction extends HttpServlet {
 		String endDateStr = request.getParameter("endDate");
 
 		boolean isValid = true;
-
+		
 		if (carIdStr == null || carIdStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidCarId", true);
@@ -133,9 +133,7 @@ public class ReservationUpdateAction extends HttpServlet {
 		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
 
-		int days = endDateStr.compareTo(startDateStr) + 1;
-
-		if (Integer.parseInt(payAmount) < days * Integer.parseInt(price)) {
+		if (Integer.parseInt(payAmount) < Integer.parseInt(price)) {
 			isValid = false;
 			request.setAttribute("isInvalidPayAmount", true);
 		}
