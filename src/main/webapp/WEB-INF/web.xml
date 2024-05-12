@@ -176,7 +176,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SignUpAction</servlet-name>
-    <url-pattern>/signUpAction</url-pattern>
+    <url-pattern>/signUp</url-pattern>
   </servlet-mapping>
 
   <servlet>
