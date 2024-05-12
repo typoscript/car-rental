@@ -78,7 +78,7 @@ public class SignUpAction extends HttpServlet {
 			return;
 		}
 
-		if (userDao.isDuplPhone(id)) {
+		if (userDao.isDuplPhone(phone)) {
 			request.setAttribute("isDuplPhone", true);
 			request.getRequestDispatcher("/signUp").forward(request, response);
 			return;
