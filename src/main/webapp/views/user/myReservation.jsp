@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>나의 예약</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/reservation/myReservation.css"/>
 </head>
 <body>
 	<div class="root">
