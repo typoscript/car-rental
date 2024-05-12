@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>예약</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/common/form.css">
 </head>
 <body>
 	<div class="root">
