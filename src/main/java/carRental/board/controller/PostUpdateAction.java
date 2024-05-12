@@ -59,16 +59,21 @@ public class PostUpdateAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 
-	
+
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String isNoticeChecked = request.getParameter("isNotice");
 
 		boolean isNotice = isNoticeChecked == null ? false : true;
-		
-		HttpSession session = request.getSession();
-		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 		
 		PostDao postDao = PostDao.getInstance();
 		PostRequestDto postDto = new PostRequestDto();
