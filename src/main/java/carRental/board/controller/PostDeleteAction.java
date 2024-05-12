@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import carRental.board.model.PostDao;
 import carRental.board.model.PostRequestDto;
+import carRental.user.model.UserRequestDto;
 import carRental.user.model.UserResponseDto;
 
 /**
@@ -47,8 +48,15 @@ public class PostDeleteAction extends HttpServlet {
 		postDto.setId(id);
 		postDto.setUserId(user.getId());
 		
-		postDao.deletePost(postDto);
+		if (user.isAdmin()) {
+			UserRequestDto userDto = new UserRequestDto();
+			userDto.setAdmin(user.isAdmin());
 
+			postDao.deletePostByAdmin(postDto, userDto);
+		} else {
+			postDao.deletePost(postDto);
+		}
+		
 		response.sendRedirect("/board");
 	}
 
