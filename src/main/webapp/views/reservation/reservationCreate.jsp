@@ -60,7 +60,8 @@
 			</div>
 			<div>
 				<p>지불금액</p>
-				<input type="number" name="price" disabled id="price" id="price">
+				<input type="hidden" id="pricePerDay" value="${car.getFee()}">
+				<input type="number" name="price" id="price" disabled>
 				<p>입금액</p>
 				<input type="number" name="payAmount" id="payAmount">
 				<p class="err err-hidden err-msg-payAmount-invalid"></p>
