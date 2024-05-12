@@ -20,10 +20,12 @@
 				<div>
 					<p>아이디</p>
 					<input type="text" name="id" id="id" >
+					<p class="err err-hidden err-msg-id">아이디가 5자리 이상 20자리 이하여야합니다.</p>
 				</div>
 				<div>
 					<p>비밀번호</p>
 					<input type="password" name="password" id="password" >
+					<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 				</div>
 				<c:if test="${hasError}">
 					<c:if test="${!isValidLogin}">
