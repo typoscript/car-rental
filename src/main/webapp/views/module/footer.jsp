@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+	<link rel="stylesheet" href="/resources/style/common/footer.css">
 <body>
 	<footer>
 		<address>
