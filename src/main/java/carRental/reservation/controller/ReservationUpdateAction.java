@@ -130,7 +130,7 @@ public class ReservationUpdateAction extends HttpServlet {
 			CarResponseDto car = carDao.findCarById(carId);
 
 			request.setAttribute("car", car);
-			request.getRequestDispatcher("/reservationCreatePage").forward(request, response);
+			request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
 			return;
 		}
 		
@@ -149,8 +149,18 @@ public class ReservationUpdateAction extends HttpServlet {
 			request.setAttribute("isInvalidPayAmount", true);
 		}
 
+		if (!isValid) {
+			CarDao carDao = CarDao.getInstance();
+			CarResponseDto car = carDao.findCarById(carId);
+
+			request.setAttribute("car", car);
+			request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
+			return;
+		}
+
 		ReservationRequestDto reservationDto = new ReservationRequestDto(id, user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
+
 				
 		if (reservationDao.updateReservation(reservationDto)) {
 			response.sendRedirect("/myPage");
