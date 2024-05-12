@@ -100,7 +100,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>postCreate</servlet-name>
-    <url-pattern>/postCreate</url-pattern>
+    <url-pattern>/postCreatePage</url-pattern>
   </servlet-mapping>
 <!-- 게시판 끝 -->
 
