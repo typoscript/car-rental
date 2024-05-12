@@ -83,7 +83,8 @@ public class PostDao {
 
 	public List<PostResponseDto> findPostAll() {
 		String sql = "SELECT id, user_id, title, content, is_notice, creation_date, modification_date " +
-				"FROM board WHERE is_notice=false";
+				"FROM board WHERE is_notice=false" +
+				"ORDER BY creation_date DESC";
 		List<PostResponseDto> posts = new ArrayList<>();
 
 		try {
