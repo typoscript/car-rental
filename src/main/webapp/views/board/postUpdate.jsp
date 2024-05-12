@@ -7,10 +7,11 @@
 <meta charset="UTF-8">
 <title>글 수정</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/user/form.css">
 </head>
 <body>
 	<div class="root">
-		<form method="POST" action="/postUpdate">
+		<form class="form" method="POST" action="/postUpdate">
 			<input type="hidden" name="id" value="${post.getId()}">
 			<div>
 				<p>제목</p>
