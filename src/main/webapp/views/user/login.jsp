@@ -40,7 +40,7 @@
 			</form>
 			<p id="sign-up"><a href="/signUp">회원가입</a></p>
 		</div>
-		</div>
+	</div>
 	<c:import url="/footer"></c:import>
 </body>
 <script src="/resources/script/user/login-validation.js"></script>
