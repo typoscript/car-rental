@@ -7,10 +7,11 @@
 <meta charset="UTF-8">
 <title>글쓰기</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/user/form.css">
 </head>
 <body>
 	<div class="root">
-		<form method="POST" action="/postCreate">
+		<form class="form" method="POST" action="/postCreate">
 			<div>
 				<p>제목</p>
 				<input type="text" name="title" id="title">
