@@ -115,20 +115,21 @@ public class PostDao {
 		return posts;
 	}
 
-	public boolean deletePostByAdmin(PostRequestDto postDto, UserRequestDto userDto) {
+	public boolean deletePostByAdmin(PostRequestDto postDto) {
 		boolean isDeleted = true;
-
+		
 		String sql = "DELETE board " +
-			"FROM board" +
-			"JOIN users ON users.id = board.user_id" +
-			"WHERE board.id=? AND users.is_admin=?";
+			"FROM board " +
+			"JOIN users ON users.id = board.user_id " +
+			"WHERE board.id=? " +
+			"AND (SELECT is_admin FROM users WHERE id=?)=true";
 
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, postDto.getId());
-			pstmt.setBoolean(2, userDto.isAdmin());
+			pstmt.setString(2, postDto.getUserId());
 
 			pstmt.execute();
 		} catch (Exception e) {
