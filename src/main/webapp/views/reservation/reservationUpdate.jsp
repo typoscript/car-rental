@@ -59,7 +59,7 @@
 			<div>
 				<p>지불금액</p>
 				<input type="hidden" id="feePerDay" value="${car.getFee()}">
-				<input type="number" name="price" id="price" disabled>
+				<input type="number" name="price" id="price" value="${price}" disabled>
 				<p>입금액</p>
 				<input type="number" name="payAmount" id="payAmount">
 				<p class="err ${isInvalidPayAmount ? '' : 'err-hidden'} err-msg-payAmount-invalid">금액이 부족합니다.</p>
