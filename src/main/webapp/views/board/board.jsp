@@ -9,12 +9,12 @@
 	<c:import url="/header"></c:import>
 </head>
 <body>
-	<c:if test="${empty user}">
-		<c:redirect url="/login"></c:redirect>
-	</c:if>
-	
 	<div class="root">
-		<div>
+		<nav class="board-nav">
+			<button class="btn btn-primary" onclick="location.href='/board'">게시글</button>
+			<button class="btn btn-primary" onclick="location.href='/notice'">공지사항</button>
+		</nav>
+		<div class="board-action-container">
 			<button class="btn btn-primary" onclick="location.href='/postCreate'">글쓰기</button>
 		</div>
 
