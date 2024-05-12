@@ -76,22 +76,22 @@ public class ReservationCreateAction extends HttpServlet {
 
 		boolean isValid = true;
 		
-		if (carIdStr == null) {
+		if (carIdStr == null || carIdStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidCarId", true);
 		}
 
-		if (payAmount == null) {
+		if (payAmount == null || payAmount.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidPayAmount", true);
 		}
 
-		if (startDateStr == null) {
+		if (startDateStr == null || startDateStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidStartDate", true);
 		}
 		
-		if (endDateStr == null) {
+		if (endDateStr == null || endDateStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidEndDate", true);
 		}
