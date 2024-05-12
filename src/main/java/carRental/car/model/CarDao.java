@@ -19,6 +19,42 @@ public class CarDao {
 	public static CarDao getInstance() {
 		return instance;
 	}
+	
+	public CarResponseDto findCarById(int id) {
+		String sql = "SELECT brand, name, type, fuel_type, year, img_url, fee, mileage " +
+		"FROM cars " +
+		"WHERE id=?";
+		
+		CarResponseDto car = null; 
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				String brand = rs.getString(1);
+				String name = rs.getString(2);
+				String type = rs.getString(3);
+				String fuelType = rs.getString(4);
+				int year = rs.getInt(5);
+				String imgUrl = rs.getString(6);
+				int fee = rs.getInt(7);
+				int mileage = rs.getInt(8);
+				
+				car = new CarResponseDto(id, brand, name, type, fuelType, year, imgUrl, fee, mileage);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findCarById");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return car;
+	}
 
 	public List<CarResponseDto> findCarAllByUserId(String userId) {
 		String sql = "SELECT cars.id, brand, name, type, fuel_type, year, img_url, fee, mileage " +
