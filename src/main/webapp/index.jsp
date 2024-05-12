@@ -7,9 +7,21 @@
 <meta charset="UTF-8">
 <title>렌터카</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/common/home.css">
 </head>
 <body>
-	<h1>홈 화면</h1>
+	<div class="root">
+		<h1 class="home-heading">초저가 렌트</h1>
+		<div class="home-container">
+			<div>
+				<img src="https://www.hyundai.com/contents/comparison/carimg_1052.png">
+				<img src="https://www.hyundai.com/contents/comparison/carimg_1107.png">
+				<img src="https://www.hyundai.com/contents/comparison/carimg_1129.png">
+				<img src="https://www.hyundai.com/contents/comparison/carimg_1267.png">
+			</div>
+			<button onclick="location.href='/carList'">렌트 바로가기</button>
+		</div>
+	</div>
 	<c:import url="/footer"></c:import>
 </body>
 </html>
