@@ -49,10 +49,7 @@ public class PostDeleteAction extends HttpServlet {
 		postDto.setUserId(user.getId());
 		
 		if (user.isAdmin()) {
-			UserRequestDto userDto = new UserRequestDto();
-			userDto.setAdmin(user.isAdmin());
-
-			postDao.deletePostByAdmin(postDto, userDto);
+			postDao.deletePostByAdmin(postDto);
 		} else {
 			postDao.deletePost(postDto);
 		}
