@@ -172,8 +172,9 @@ public class ReservationDao {
 	public boolean isValidReservationDateRange(ReservationRequestDto reservationDto) {
 		String sql = "SELECT COUNT(*) " +
 			"FROM rental_reservations " +
-			"WHERE start_date BETWEEN ? AND ? " +
-			"OR end_date BETWEEN ? AND ?";
+			"WHERE (? BETWEEN start_date AND end_date " +
+			"OR ? BETWEEN start_date AND end_date) " +
+			"AND status=?";
 
 		int reservationCountInDateRange = 0;
 		
@@ -182,8 +183,7 @@ public class ReservationDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setDate(1, Date.valueOf(reservationDto.getStartDate()));
 			pstmt.setDate(2, Date.valueOf(reservationDto.getEndDate()));
-			pstmt.setDate(3, Date.valueOf(reservationDto.getStartDate()));
-			pstmt.setDate(4, Date.valueOf(reservationDto.getEndDate()));
+			pstmt.setString(3, Reservation.Status.reserved);
 			
 			rs = pstmt.executeQuery();
 			
