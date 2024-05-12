@@ -18,6 +18,7 @@
 		<c:when test="${empty reservations}">
 			<div>
 				<h1>예약 기록이 없습니다</h1>
+				<button class="btn btn-primary" onclick="location.href='/carList'">렌트 바로가기</button>
 			</div>
 		</c:when>
 		<c:otherwise>
