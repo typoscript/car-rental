@@ -6,3 +6,25 @@
 .board-action-container {
 	text-align: right;
 }
+
+.board-post-container {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	width: 100%;
+	margin-top: 10px;
+}	
+
+.post-container {
+	border-radius: 10px;
+	background-color: #edfff2;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.post-container:hover {
+	background-color:#5dd96a;
+}
