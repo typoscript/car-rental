@@ -126,9 +126,7 @@ public class ReservationCreateAction extends HttpServlet {
 		LocalDate startDate = LocalDate.parse(startDateStr);
 		LocalDate endDate = LocalDate.parse(endDateStr);
 		
-		int days = endDateStr.compareTo(startDateStr) + 1;
-
-		if (Integer.parseInt(payAmount) < days * Integer.parseInt(price)) {
+		if (Integer.parseInt(payAmount) < Integer.parseInt(price)) {
 			isValid = false;
 			request.setAttribute("isInvalidPayAmount", true);
 		}
