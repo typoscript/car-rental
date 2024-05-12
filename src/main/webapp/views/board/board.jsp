@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>게시판</title>
 	<c:import url="/header"></c:import>
+	<link rel="stylesheet" href="/resources/style/common/board.css">
 </head>
 <body>
 	<div class="root">
