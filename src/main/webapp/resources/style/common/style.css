@@ -40,6 +40,11 @@ li {
 	list-style: none;
 }
 
+input[type="checkbox"] {
+	width: 30px;
+	height: 30px;
+}
+
 input[type="submit"],
 button {
 	cursor: pointer;
