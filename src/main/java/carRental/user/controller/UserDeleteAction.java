@@ -38,6 +38,8 @@ public class UserDeleteAction extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+
+		request.getRequestDispatcher("/userDeletePage").forward(request, response);
 	}
 
 	/**
