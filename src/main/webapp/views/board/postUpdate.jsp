@@ -16,12 +16,12 @@
 			<div>
 				<p>제목</p>
 				<input type="text" name="title" id="title" value="${post.getTitle()}">
-				<p class="err err-hidden err-msg-title">제목이 비어있습니다.</p>
+				<p class="err ${isInvalidTitle ? '' : 'err-hidden'} err-msg-title">제목이 비어있습니다.</p>
 			</div>
 			<div>
 				<p>내용</p>
 				<textarea name="content" id="content">${post.getContent()}</textarea>
-				<p class="err err-hidden err-msg-content">내용이 비어있습니다.</p>
+				<p class="err ${isInvalidContent ? '' : 'err-hidden'} err-msg-content">내용이 비어있습니다.</p>
 			</div>
 			<c:if test="${user.isAdmin()}">
 			<div>
