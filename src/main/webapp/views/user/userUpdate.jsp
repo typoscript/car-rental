@@ -27,7 +27,7 @@
 			<div>
 				<p>새 비밀번호</p>
 				<input type="password" name="newPassword" id="newPassword">
-				<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
+				<p class="err err-hidden err-msg-new-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 			</div>
 			<div>
 				<p>이름</p>
