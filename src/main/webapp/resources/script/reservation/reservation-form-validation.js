@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
 	$("form").submit(e => {
 		e.preventDefault();
@@ -10,12 +9,21 @@ $(document).ready(() => {
 	})
 });
 
+$("#startDate").change(() => {
+	setPriceInputValue();
+});
+
+$("#endDate").change(() => {
+	setPriceInputValue();
+});
+
+
 function isValidInput() {
 	const startDate = $("#startDate").val();
 	const endDate = $("#endDate").val();
 	const price = $("#price").val();
 	const payAmount = $("#payAmount").val();
-		
+	
 	let isValid = true;
 
 	if (!startDate) {
@@ -39,7 +47,7 @@ function isValidInput() {
 		$(".err-msg-payAmount-invalid").hide();
 	}
 	
-	if(Date.parse(startDate) > Date.parse(endDate)) {
+	if(!isValidDateRange(startDate, endDate)) {
 		isValid = false;
 		$(".err-msg-reservationDate-invalid").show();
 	} else {
@@ -47,4 +55,8 @@ function isValidInput() {
 	}
 	
 	return isValid;
+}
+
+function isValidDateRange(startDate, endDate) {
+	return Date.parse(startDate) <= Date.parse(endDate);
 }
