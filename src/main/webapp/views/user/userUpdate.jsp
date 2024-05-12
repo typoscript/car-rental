@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
-	<link rel="stylesheet" href="/resources/style/user/form.css">
+	<link rel="stylesheet" href="/resources/style/common/form.css">
 	<c:import url="/header"></c:import>
 </head>
 <body>
