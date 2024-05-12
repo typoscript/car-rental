@@ -32,11 +32,15 @@ public class PostDeleteAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 
 
-		int id = Integer.parseInt(request.getParameter("id"));
-
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto) session.getAttribute("user");
 
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+
+		int id = Integer.parseInt(request.getParameter("id"));
 		PostDao postDao = PostDao.getInstance();
 		PostRequestDto postDto = new PostRequestDto();
 
