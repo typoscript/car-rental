@@ -30,8 +30,8 @@ public class LoginAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("hasError", false);
+		request.getRequestDispatcher("/loginPage").forward(request, response);
 	}
 
 	/**
@@ -45,6 +45,8 @@ public class LoginAction extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		boolean isValid = true;
+		UserDao userDao = UserDao.getInstance();
+		UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
 		
 		if (id == null || id.isEmpty())
 			isValid = false;
@@ -52,15 +54,14 @@ public class LoginAction extends HttpServlet {
 			isValid = false;	
 
 		if (!isValid) {
-			response.sendRedirect("/login");
+			request.setAttribute("isValidLogin", isValid);
+			request.getRequestDispatcher("/login").forward(request, response);
 			return;
 		}
 
-		UserDao userDao = UserDao.getInstance();
-		UserResponseDto user = userDao.findUserByIdAndPassword(id, password);
-
 		if (user == null) {
-			response.sendRedirect("/login");
+			request.setAttribute("isValidLogin", false);
+			request.getRequestDispatcher("/login").forward(request, response);
 			return;
 		}
 
