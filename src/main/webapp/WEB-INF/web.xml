@@ -62,7 +62,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>userUpdate</servlet-name>
-    <url-pattern>/userUpdate</url-pattern>
+    <url-pattern>/userUpdatePage</url-pattern>
   </servlet-mapping>
 
   <servlet>
