@@ -18,7 +18,7 @@
 		<form class="form" method="POST" action="/userUpdate">
 			<div>
 				<p>기존 비밀번호</p>
-				<input type="password" name="password" id="currentPassword">
+				<input type="password" name="password" id="password">
 				<p class="err err-hidden err-msg-password">비밀번호가 10자리 이상 20자리 이하여야합니다.</p>
 				<c:if test="${isInvalidPassword}">
 					<p class="err err-msg-password-invalid">비밀번호가 틀립니다.</p>
