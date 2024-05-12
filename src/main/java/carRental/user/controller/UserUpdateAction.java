@@ -54,6 +54,12 @@ public class UserUpdateAction extends HttpServlet {
 			request.getRequestDispatcher("/userUpdatePage").forward(request, response);
 			return;
 		}
+
+		if (userDao.isDuplPhone(phone)) {
+			request.setAttribute("isDuplPhone", true);
+			request.getRequestDispatcher("/userUpdatePage").forward(request, response);
+			return;
+		}
 		
 		userDto.setId(user.getId());
 
