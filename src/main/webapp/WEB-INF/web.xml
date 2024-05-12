@@ -102,6 +102,15 @@
     <servlet-name>postCreate</servlet-name>
     <url-pattern>/postCreatePage</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>postUpdate</servlet-name>
+    <jsp-file>/views/board/postUpdate.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>postUpdate</servlet-name>
+    <url-pattern>/postUpdatePage</url-pattern>
+  </servlet-mapping>
 <!-- 게시판 끝 -->
 
 <!-- 예약 시작 -->
