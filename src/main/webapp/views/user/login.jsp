@@ -25,8 +25,10 @@
 					<p>비밀번호</p>
 					<input type="password" name="password" >
 				</div>
-				<c:if test="${!isValidLogin}">
-					<p class="err err-msg-login">아이디 혹은 비밀번호가 틀리거나 없는 계정입니다.</p>
+				<c:if test="${hasError}">
+					<c:if test="${!isValidLogin}">
+						<p class="err err-msg-login">아이디 혹은 비밀번호가 틀리거나 없는 계정입니다.</p>
+					</c:if>
 				</c:if>
 				<input type="submit" class="btn btn-success" value="로그인" >
 			</form>
