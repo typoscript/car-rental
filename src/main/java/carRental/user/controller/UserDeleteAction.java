@@ -54,6 +54,7 @@ public class UserDeleteAction extends HttpServlet {
 		boolean result = userDao.deleteUser(userDto);
 
 		if (result) {
+			session.removeAttribute("user");
 			response.sendRedirect("/");
 			return;
 		}
