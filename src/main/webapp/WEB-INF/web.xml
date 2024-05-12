@@ -158,7 +158,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginAction</servlet-name>
-    <url-pattern>/loginAction</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
   <servlet>
