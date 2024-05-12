@@ -261,7 +261,13 @@ public class UserDao {
 		return findUserById(id) != null;
 	}
 
-	public boolean isDuplPhone(String phone) {
-		return findUserByPhone(phone) != null;
+	public boolean isPhoneAvailable(String id, String phone) {
+		User user = findUserById(id);
+		User userWithPhone = findUserByPhone(phone);
+		
+		if (userWithPhone == null)
+			return true;
+
+		return user.equals(userWithPhone);
 	}
 }
