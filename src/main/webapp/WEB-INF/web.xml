@@ -35,7 +35,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>signUp</servlet-name>
-    <url-pattern>/signUp</url-pattern>
+    <url-pattern>/signUpPage</url-pattern>
   </servlet-mapping>
 
   <servlet>
