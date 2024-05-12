@@ -167,7 +167,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UserDeleteAction</servlet-name>
-    <url-pattern>/userDeleteAction</url-pattern>
+    <url-pattern>/userDelete</url-pattern>
   </servlet-mapping>
 
   <servlet>
