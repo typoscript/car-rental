@@ -53,17 +53,17 @@
 			<input type="hidden" name="carId" value="${car.getId()}">
 			<div>
 				<p>렌트 시작일</p>
-				<input type="date" name="startDate">
+				<input type="date" name="startDate" id="startDate">
 			</div>
 			<div>
 				<p>렌트 종료일</p>
-				<input type="date" name="endDate">
+				<input type="date" name="endDate" id="endDate">
 			</div>
 			<div>
 				<p>지불금액</p>
-				<input type="number" name="payAmount" disabled>
+				<input type="number" name="price" disabled id="price">
 				<p>입금액</p>
-				<input type="number" name="userPayAmount">
+				<input type="number" name="payAmount" id="payAmount">
 			</div>
 			<input type="submit" class="btn btn-success" value="예약">
 		</form>
