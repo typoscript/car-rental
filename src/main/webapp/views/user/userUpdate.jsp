@@ -41,7 +41,7 @@
 			<div>
 				<p>전화번호</p>
 				<input type="text" name="phone" id="phone">
-				<p class="err err-hidden err-msg-phone">올바른 전화번오 입력 (예: 010-1234-1234).</p>
+				<p class="err err-hidden err-msg-phone">올바른 전화번호 입력 (예: 010-1234-1234).</p>
 				<c:if test="${isDuplPhone}">
 					<p class="err err-msg-phone-dupl">중복 전화번호입니다.</p>
 				</c:if>
