@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import carRental.car.model.CarDao;
 import carRental.car.model.CarResponseDto;
 import carRental.reservation.model.Reservation;
 import carRental.reservation.model.ReservationDao;
@@ -68,11 +69,49 @@ public class ReservationCreateAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		
-		int carId = Integer.parseInt(request.getParameter("carId"));
-
+		String carIdStr = request.getParameter("carId");
+		String payAmount = request.getParameter("payAmount");
 		LocalDate startDate = LocalDate.parse(request.getParameter("startDate"));
 		LocalDate endDate = LocalDate.parse(request.getParameter("endDate"));
 		
+		boolean isValid = true;
+		
+		if (carIdStr == null) {
+			isValid = false;
+			request.setAttribute("isInvalidcarId", true);
+		}
+
+		if (payAmount == null) {
+			isValid = false;
+			request.setAttribute("isInvalidPayAmount", true);
+		}
+
+		if (startDate == null) {
+			isValid = false;
+			request.setAttribute("isInvalidStartDate", true);
+		}
+		
+		if (endDate == null) {
+			isValid = false;
+			request.setAttribute("isInvalidEndDate", true);
+		}
+		
+		if (startDate.compareTo(endDate) > 0) {
+			isValid = false;
+			request.setAttribute("isInvalidReservationDateRange", true);
+		}
+		
+		int carId = Integer.parseInt(carIdStr);
+
+		if (!isValid) {
+			CarDao carDao = CarDao.getInstance();
+			CarResponseDto car = carDao.findCarById(carId);
+
+			request.setAttribute("car", car);
+			request.getRequestDispatcher("/reservationCreatePage").forward(request, response);
+			return;
+		}
+
 		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
 		ReservationDao reservationDao = ReservationDao.getInstance();
 				
