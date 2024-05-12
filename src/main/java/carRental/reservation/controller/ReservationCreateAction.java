@@ -78,7 +78,7 @@ public class ReservationCreateAction extends HttpServlet {
 		
 		if (carIdStr == null) {
 			isValid = false;
-			request.setAttribute("isInvalidcarId", true);
+			request.setAttribute("isInvalidCarId", true);
 		}
 
 		if (payAmount == null) {
@@ -102,6 +102,13 @@ public class ReservationCreateAction extends HttpServlet {
 		}
 		
 		int carId = Integer.parseInt(carIdStr);
+		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
+		ReservationDao reservationDao = ReservationDao.getInstance();
+		
+		if (!reservationDao.isValidReservationDateRange(reservationDto)) {
+			isValid = false;
+			request.setAttribute("isInvalidReservationDateRange", true);
+		}
 
 		if (!isValid) {
 			CarDao carDao = CarDao.getInstance();
@@ -112,9 +119,6 @@ public class ReservationCreateAction extends HttpServlet {
 			return;
 		}
 
-		ReservationRequestDto reservationDto = new ReservationRequestDto(user.getId(), carId, startDate, endDate, Reservation.Status.reserved);
-		ReservationDao reservationDao = ReservationDao.getInstance();
-				
 		if (reservationDao.createReservation(reservationDto)) {
 			response.sendRedirect("/myPage");
 			return;
