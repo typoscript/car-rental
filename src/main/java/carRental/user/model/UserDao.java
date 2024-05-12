@@ -115,7 +115,7 @@ public class UserDao {
 
 	public UserResponseDto updateUserAddress(UserRequestDto userDto) {
 		UserResponseDto user = null;
-		String sql = "UPDATE users SET address=? WHERE id=? AND password=?";
+		String sql = "UPDATE users SET address=? WHERE id=?";
 
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
 			return null;
@@ -126,7 +126,6 @@ public class UserDao {
 
 			pstmt.setString(1, userDto.getAddress());
 			pstmt.setString(2, userDto.getId());
-			pstmt.setString(3, userDto.getPassword());
 
 			pstmt.execute();
 
@@ -144,7 +143,7 @@ public class UserDao {
 
 	public UserResponseDto updateUserPhone(UserRequestDto userDto) {
 		UserResponseDto user = null;
-		String sql = "UPDATE users SET phone=? WHERE id=? AND password=?";
+		String sql = "UPDATE users SET phone=? WHERE id=?";
 
 		if (findUserByIdAndPassword(userDto.getId(), userDto.getPassword()) == null)
 			return null;
@@ -155,7 +154,6 @@ public class UserDao {
 
 			pstmt.setString(1, userDto.getPhone());
 			pstmt.setString(2, userDto.getId());
-			pstmt.setString(3, userDto.getPassword());
 
 			pstmt.execute();
 
