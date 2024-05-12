@@ -48,15 +48,20 @@ public class UserUpdateAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
 		UserRequestDto userDto = new UserRequestDto();
+		
+		boolean isValid = true;
 
 		if (userDao.findUserByIdAndPassword(user.getId(), password) == null) {
 			request.setAttribute("isInvalidPassword", true);
-			request.getRequestDispatcher("/userUpdatePage").forward(request, response);
-			return;
+			isValid = false;
 		}
 
-		if (userDao.isDuplPhone(phone)) {
+		if (!userDao.isPhoneAvailable(user.getId(), phone)) {
 			request.setAttribute("isDuplPhone", true);
+			isValid = false;
+		}
+		
+		if (!isValid) {
 			request.getRequestDispatcher("/userUpdatePage").forward(request, response);
 			return;
 		}
