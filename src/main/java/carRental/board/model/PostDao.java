@@ -115,6 +115,41 @@ public class PostDao {
 		return posts;
 	}
 
+	public List<PostResponseDto> findNoticePostAll() {
+		String sql = "SELECT id, user_id, title, content, is_notice, creation_date, modification_date " +
+				"FROM board WHERE is_notice=true";
+		List<PostResponseDto> posts = new ArrayList<>();
+
+		try {
+			conn = DBManager.getConnection();
+
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String userId = rs.getString(2);
+				String title = rs.getString(3);
+				String content = rs.getString(4);
+				boolean isNotice = rs.getBoolean(5);
+				Timestamp creationDate = rs.getTimestamp(6);
+				Timestamp modificationDate = rs.getTimestamp(7);
+				
+				PostResponseDto post = new PostResponseDto(id, userId, title, content, isNotice, creationDate, modificationDate);
+				
+				posts.add(post);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findNoticePostAll");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return posts;
+	}
+
 	public boolean deletePostByAdmin(PostRequestDto postDto) {
 		boolean isDeleted = true;
 		
