@@ -51,4 +51,5 @@
 	</div>
 	<c:import url="/footer"></c:import>
 </body>
+<script src="/resources/script/user/user-update-validation.js"></script>
 </html>
