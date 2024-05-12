@@ -31,7 +31,7 @@
 	background-color: #38b044;
 }
 
-.login-container > .form-login p {
+.login-container > .form-login > div > p {
 	color: #5dd96a;
 }
 
