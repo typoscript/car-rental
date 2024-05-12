@@ -13,12 +13,12 @@
 		<form method="POST" action="/postCreate">
 			<div>
 				<p>제목</p>
-				<input type="text" name="title">
+				<input type="text" name="title" id="title">
 				<p class="err err-hidden err-msg-title">제목이 비어있습니다.</p>
 			</div>
 			<div>
 				<p>내용</p>
-				<textarea name="content"></textarea>
+				<textarea name="content" id="content"></textarea>
 				<p class="err err-hidden err-msg-content">내용이 비어있습니다.</p>
 			</div>
 			<input type="submit" class="btn btn-success" value="업로드" >
