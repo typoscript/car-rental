@@ -226,4 +226,8 @@ public class UserDao {
 		
 		return user;
 	}
+	
+	public boolean isDuplId(String id) {
+		return findUserById(id) != null;
+	}
 }
