@@ -81,9 +81,7 @@
 							</form>
 						</c:when>
 						<c:otherwise>
-							<form method="POST" action="/reservationDelete?id=${reservations[i].getId()}">
-								<input type="submit" class="btn btn-danger" value="만료 & 취소 예약 삭제" >
-							</form>
+							<button class="btn btn-danger" onclick="location.href='/reservationDelete?id=${reservations[i].getId()}'">만료 혹은 취소된 예약 삭제</button>
 						</c:otherwise>
 					</c:choose>
 						<c:if test="">
