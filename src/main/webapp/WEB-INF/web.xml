@@ -223,6 +223,15 @@
     <servlet-name>ReservationViewAction</servlet-name>
     <url-pattern>/myReservation</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ReservationDateRangeView</servlet-name>
+    <servlet-class>carRental.reservation.controller.ReservationDateRangeView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservationDateRangeView</servlet-name>
+    <url-pattern>/reservationDateRangeView</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>ReservationDeleteAction</servlet-name>
