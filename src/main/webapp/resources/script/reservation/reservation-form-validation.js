@@ -1,6 +1,8 @@
+let dateRanges;
+
 $(document).ready(async () => {
 	const carId = $("#carId").val();
-	const dateRanges = await getReservationDateRanges(carId);
+	dateRanges = await getReservationDateRanges(carId);
 
 	$("form").submit(e => {
 		e.preventDefault();
@@ -76,8 +78,8 @@ function isValidInput() {
 	} else {
 		$(".err-msg-endDate-invalid").hide();
 	}
-
-	if (!payAmount || payAmount < price) {
+	
+	if (!payAmount || Number(payAmount) < Number(price)) {
 		isValid = false;
 		$(".err-msg-payAmount-invalid").show();
 	} else {
@@ -89,6 +91,13 @@ function isValidInput() {
 		$(".err-msg-reservationDate-invalid").show();
 	} else {
 		$(".err-msg-reservationDate-invalid").hide();
+	}
+
+	if(hasReservedDate(startDate, endDate)) {
+		isValid = false;
+		$(".err-msg-reservationDate-exist").show();
+	} else {
+		$(".err-msg-reservationDate-exist").hide();
 	}
 	
 	return isValid;
