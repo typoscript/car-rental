@@ -69,7 +69,7 @@
 			</div>
 			<div>
 				<p class="err err-hidden err-msg-reservationDate-invalid">유효하지 않는 렌트 기간입니다.</p>
-				<p class="err ${isInvalidReservationDateRange ? '' : 'err-hidden'} err-msg-reservationDate-invalid">해당 렌트 기간에 렌트 예약이 존재합니다.</p>
+				<p class="err ${isInvalidReservationDateRange ? '' : 'err-hidden'} err-msg-reservationDate-exist">해당 렌트 기간에 렌트 예약이 존재합니다.</p>
 			</div>
 			<input type="submit" class="btn btn-success" value="예약">
 		</form>
