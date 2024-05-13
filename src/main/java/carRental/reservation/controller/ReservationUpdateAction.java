@@ -93,6 +93,11 @@ public class ReservationUpdateAction extends HttpServlet {
 
 		boolean isValid = true;
 		
+		if (status != null && status.equals(Reservation.Status.cancelled)) {
+			handleReservationStatusChange(response, id, user.getId(), status);
+			return;
+		}
+		
 		if (carIdStr == null || carIdStr.isEmpty()) {
 			isValid = false;
 			request.setAttribute("isInvalidCarId", true);
@@ -133,11 +138,6 @@ public class ReservationUpdateAction extends HttpServlet {
 			CarResponseDto car = carDao.findCarById(carId);
 			request.setAttribute("car", car);
 			request.getRequestDispatcher("/reservationUpdatePage").forward(request, response);
-			return;
-		}
-		
-		if (status != null) {
-			handleReservationStatusChange(response, id, user.getId(), status);
 			return;
 		}
 		
