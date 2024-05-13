@@ -97,3 +97,17 @@ function isValidInput() {
 function isValidDateRange(startDate, endDate) {
 	return Date.parse(startDate) <= Date.parse(endDate);
 }
+
+function hasReservedDate() {
+	const startDate = $("#startDate").val();
+	const endDate = $("#endDate").val();
+	
+	for (const dateRange of dateRanges) {
+		if (dateRange.startDate <= startDate && startDate <= dateRange.endDate)
+			return true;	
+		else if (dateRange.startDate <= endDate && endDate <= dateRange.endDate)
+			return true;	
+	}
+	
+	return false;
+}
