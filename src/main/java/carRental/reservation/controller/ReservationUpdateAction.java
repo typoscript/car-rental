@@ -61,16 +61,10 @@ public class ReservationUpdateAction extends HttpServlet {
 		ReservationResponseDto reservation = new ReservationResponseDto(id, user.getId(), carId, startDate, endDate);
 		CarResponseDto car = new CarResponseDto(carId, brand, name, type, fuelType, year, imgUrl, fee, mileage);
 
-		ReservationRequestDto resRequest = new ReservationRequestDto();
-		resRequest.setCarId(carId);
-		
-		List<ReservationResponseDto> reservationDateRanges = ReservationDao.getInstance().findReservationDateRangesById(resRequest);
-
 		int days = endDate.compareTo(startDate) + 1;
 		int price = fee * days;
 
 		request.setAttribute("reservation", reservation);
-		request.setAttribute("reservationDateRanges", reservationDateRanges);
 		request.setAttribute("price", price);
 		request.setAttribute("car", car);
 
