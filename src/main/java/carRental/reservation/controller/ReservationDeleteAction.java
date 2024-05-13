@@ -6,9 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import carRental.reservation.model.ReservationDao;
 import carRental.reservation.model.ReservationRequestDto;
+import carRental.user.model.UserResponseDto;
 
 /**
  * Servlet implementation class ReservationDeleteAction
@@ -28,6 +30,13 @@ public class ReservationDeleteAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
+		if ((UserResponseDto)session.getAttribute("user") == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		ReservationDao reservationDao = ReservationDao.getInstance();
