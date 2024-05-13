@@ -1,4 +1,7 @@
-$(document).ready(() => {
+$(document).ready(async () => {
+	const carId = $("#carId").val();
+	const dateRanges = await getReservationDateRanges(carId);
+
 	$("form").submit(e => {
 		e.preventDefault();
 
@@ -8,6 +11,20 @@ $(document).ready(() => {
 		e.target.submit();
 	})
 });
+
+function getReservationDateRanges(carId) {
+    return fetch(`/reservationDateRangeView?carId=${carId}`, {
+        method: "GET",
+    })
+    .then(response => response.json())
+    .then(result => {
+		return result;
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 
 $("#startDate").change(() => {
 	setPriceInputValue();
