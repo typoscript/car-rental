@@ -171,10 +171,12 @@ public class ReservationDao {
 		return reservations;
 	}
 
-	public List<ReservationResponseDto> findReservationDateRangeById(String id) {
+	public List<ReservationResponseDto> findReservationDateRangeById(ReservationRequestDto reservationDto) {
 		String sql = "SELECT start_date, end_date" +
 		"FROM rental_reservations" +
 		"WHERE car_id=?";
+		
+		return null;
 	}
 
 	public boolean isValidReservationDateRange(ReservationRequestDto reservationDto) {
