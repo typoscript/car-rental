@@ -12,6 +12,12 @@ public class ReservationResponseDto {
 	private String status;
 	private Timestamp creationDate;
 
+	public ReservationResponseDto(LocalDate startDate, LocalDate endDate) {
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
+
 	public ReservationResponseDto(int id, String userId, int carId, LocalDate startDate, LocalDate endDate) {
 		this.id = id;
 		this.userId = userId;
