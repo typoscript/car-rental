@@ -171,12 +171,27 @@ public class ReservationDao {
 		return reservations;
 	}
 
-	public List<ReservationResponseDto> findReservationDateRangeById(ReservationRequestDto reservationDto) {
+	public List<ReservationResponseDto> findReservationDateRangesById(ReservationRequestDto reservationDto) {
 		String sql = "SELECT start_date, end_date" +
 		"FROM rental_reservations" +
 		"WHERE car_id=?";
 		
-		return null;
+		List<ReservationResponseDto> dateRanges = null;
+	
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reservationDto.getId());
+			
+			rs = pstmt.executeQuery();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Error: findReservationDateRangesById");
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		return dateRanges;
 	}
 
 	public boolean isValidReservationDateRange(ReservationRequestDto reservationDto) {
@@ -187,7 +202,7 @@ public class ReservationDao {
 			"AND status=?";
 
 		int reservationCountInDateRange = 0;
-		
+
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
