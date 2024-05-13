@@ -172,8 +172,8 @@ public class ReservationDao {
 	}
 
 	public List<ReservationResponseDto> findReservationDateRangesById(ReservationRequestDto reservationDto) {
-		String sql = "SELECT start_date, end_date" +
-		"FROM rental_reservations" +
+		String sql = "SELECT start_date, end_date " +
+		"FROM rental_reservations " +
 		"WHERE car_id=?";
 		
 		List<ReservationResponseDto> dateRanges = new ArrayList<ReservationResponseDto>();
@@ -181,11 +181,11 @@ public class ReservationDao {
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, reservationDto.getId());
+			pstmt.setInt(1, reservationDto.getCarId());
 			
 			rs = pstmt.executeQuery();
 			
-			if (rs.next()) {
+			while (rs.next()) {
 				LocalDate startDate = LocalDate.parse(rs.getString(1));
 				LocalDate endDate = LocalDate.parse(rs.getString(2));
 				
