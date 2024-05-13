@@ -7,9 +7,11 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
 import carRental.util.DBManager;
+
+import java.sql.Date;
+
 
 public class ReservationDao {
 	private static ReservationDao instance = new ReservationDao();
@@ -167,6 +169,12 @@ public class ReservationDao {
 		}
 		
 		return reservations;
+	}
+
+	public List<ReservationResponseDto> findReservationDateRangeById(String id) {
+		String sql = "SELECT start_date, end_date" +
+		"FROM rental_reservations" +
+		"WHERE car_id=?";
 	}
 
 	public boolean isValidReservationDateRange(ReservationRequestDto reservationDto) {
