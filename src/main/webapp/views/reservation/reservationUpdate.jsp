@@ -46,7 +46,10 @@
 		</div>
 		<form class="form" method="POST" action="/reservationUpdate">
 			<input type="hidden" name="id" value="${reservation.getId()}">
-			<input type="hidden" name="carId" value="${car.getId()}">
+			<input type="hidden" name="carId" id="carId" value="${car.getId()}">
+			<c:forEach var="dateRange" items="${reservationDateRanges}" >
+				<p>${dateRange.getStartDate()} ${dateRange.getEndDate()}</p>
+			</c:forEach>
 			<div>
 				<p>렌트 시작일</p>
 				<input type="date" name="startDate" id="startDate" value="${reservation.getStartDate()}">
@@ -67,7 +70,7 @@
 			</div>
 			<div>
 				<p class="err err-hidden err-msg-reservationDate-invalid">유효하지 않는 렌트 기간입니다.</p>
-				<p class="err ${isInvalidReservationDateRange ? '' : 'err-hidden'} err-msg-reservationDate-invalid">해당 렌트 기간에 렌트 예약이 존재합니다.</p>
+				<p class="err ${isInvalidReservationDateRange ? '' : 'err-hidden'} err-msg-reservationDate-exist">해당 렌트 기간에 렌트 예약이 존재합니다.</p>
 			</div>
 			<input type="submit" class="btn btn-success" value="예약 수정">
 		</form>
