@@ -176,7 +176,7 @@ public class ReservationDao {
 		"FROM rental_reservations" +
 		"WHERE car_id=?";
 		
-		List<ReservationResponseDto> dateRanges = null;
+		List<ReservationResponseDto> dateRanges = new ArrayList<ReservationResponseDto>();
 	
 		try {
 			conn = DBManager.getConnection();
@@ -184,6 +184,15 @@ public class ReservationDao {
 			pstmt.setInt(1, reservationDto.getId());
 			
 			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				LocalDate startDate = LocalDate.parse(rs.getString(1));
+				LocalDate endDate = LocalDate.parse(rs.getString(2));
+				
+				ReservationResponseDto dateRange = new ReservationResponseDto(startDate, endDate);
+
+				dateRanges.add(dateRange);
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 			System.out.println("Error: findReservationDateRangesById");
