@@ -73,11 +73,20 @@
 						</div>
 					</div>
 					<div class="card-reservation-action-container">
-						<c:if test="${reservations[i].getStatus() eq '예약'}">
+					<c:choose>
+						<c:when test="${reservations[i].getStatus() eq '예약'}">
 							<button class="btn btn-primary" onclick="location.href='/reservationUpdate?id=${reservations[i].getId()}&startDate=${reservations[i].getStartDate()}&endDate=${reservations[i].getEndDate()}&carId=${cars[i].getId()}&brand=${cars[i].getBrand()}&name=${cars[i].getName()}&type=${cars[i].getType()}&fuelType=${cars[i].getFuelType()}&year=${cars[i].getYear()}&fee=${cars[i].getFee()}&mileage=${cars[i].getMileage()}&imgUrl=${cars[i].getImgUrl()}'">수정</button>
 							<form method="POST" action="/reservationUpdate?id=${reservations[i].getId()}&status=취소">
 								<input type="submit" class="btn btn-danger" value="취소" >
 							</form>
+						</c:when>
+						<c:otherwise>
+							<form method="POST" action="/reservationDelete?id=${reservations[i].getId()}">
+								<input type="submit" class="btn btn-danger" value="만료 & 취소 예약 삭제" >
+							</form>
+						</c:otherwise>
+					</c:choose>
+						<c:if test="">
 						</c:if>
 					</div>
 				</div>
