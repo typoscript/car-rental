@@ -171,10 +171,10 @@ public class ReservationDao {
 		return reservations;
 	}
 
-	public List<ReservationResponseDto> findReservationDateRangesById(ReservationRequestDto reservationDto) {
+	public List<ReservationResponseDto> findReservationDateRangesByIdAndUserId(ReservationRequestDto reservationDto) {
 		String sql = "SELECT start_date, end_date " +
 		"FROM rental_reservations " +
-		"WHERE car_id=?";
+		"WHERE car_id=? AND user_id != ?";
 		
 		List<ReservationResponseDto> dateRanges = new ArrayList<ReservationResponseDto>();
 	
@@ -182,6 +182,7 @@ public class ReservationDao {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, reservationDto.getCarId());
+			pstmt.setString(1, reservationDto.getUserId());
 			
 			rs = pstmt.executeQuery();
 			
