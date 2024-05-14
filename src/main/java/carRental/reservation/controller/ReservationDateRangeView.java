@@ -46,7 +46,7 @@ public class ReservationDateRangeView extends HttpServlet {
 		for (ReservationResponseDto dateRange : dateRanges) {
 			JSONObject dateObject = new JSONObject();
 			dateObject.put("startDate", dateRange.getStartDate());
-			dateObject.put("endDate", dateRange.getStartDate());
+			dateObject.put("endDate", dateRange.getEndDate());
 			
 			dateRangeArr.put(dateObject);
 		}
