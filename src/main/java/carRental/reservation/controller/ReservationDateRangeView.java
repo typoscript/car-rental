@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 import carRental.reservation.model.ReservationDao;
 import carRental.reservation.model.ReservationRequestDto;
 import carRental.reservation.model.ReservationResponseDto;
+import carRental.user.model.UserResponseDto;
 
 /**
  * Servlet implementation class ReservationDateRangeView
@@ -35,11 +37,20 @@ public class ReservationDateRangeView extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		UserResponseDto user = (UserResponseDto)session.getAttribute("user");
+		
+		if (user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+
 		String carId = request.getParameter("carId");
 		ReservationRequestDto reservationDto = new ReservationRequestDto();
 		reservationDto.setCarId(Integer.parseInt(carId));
+		reservationDto.setUserId(user.getId());
 
-		List<ReservationResponseDto> dateRanges = ReservationDao.getInstance().findReservationDateRangesById(reservationDto);
+		List<ReservationResponseDto> dateRanges = ReservationDao.getInstance().findReservationDateRangesByIdAndUserId(reservationDto);
 		
 		JSONArray dateRangeArr = new JSONArray();
 		
